@@ -21,22 +21,40 @@ class ViewModelWatch: NSObject, ObservableObject {
         self.session.delegate = self
         session.activate()
     }
+    
+    func updatePhone() {
+        if session.activationState == .activated {
+            print("Watch - updateWatch()")
+            if session.isReachable {
+                WCSession.default.sendMessageData(gameManager.getData()!) { response in
+                    print("Response: \(response)")
+                } errorHandler: { error in
+                    print("Error sending data to phone: \(error)")
+                }
+            } else {
+                do {
+                    print("Watch - updateApplicationContext()")
+                    try WCSession.default.updateApplicationContext(["gameManager": gameManager.getData()!])
+                } catch {
+                    print("Error sending data to phone: \(error)")
+                }
+            }
+        }
+    }
 }
 
 extension ViewModelWatch: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("Watch - activationDidCompleteWith()")
+        print("Watch - activationDidCompleteWith")
+    }
+    
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
+        print("Watch - didReceiveMessageData: \(messageData)")
+        gameManager.importData(data: messageData)
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        print("Watch - didReceiveApplicationContext")
-        testString = applicationContext["gameManager"] as! String
-        print("Received: \(testString)")
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        DispatchQueue.main.async {
-            self.messageText = message["message"] as? String ?? "Unknown"
-        }
+        print("Watch - didReceiveApplicationContext: \(applicationContext)")
+        gameManager.importData(data: applicationContext["gameManager"] as! Data)
     }
 }
