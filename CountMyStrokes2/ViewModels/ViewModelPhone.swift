@@ -17,6 +17,15 @@ class ViewModelPhone: NSObject {
         self.session.delegate = self
         session.activate()
     }
+    
+    func updateWatch() {
+        do {
+            print("Phone - updateApplicationContext()")
+            try WCSession.default.updateApplicationContext(["gameManager": "can you hear me?"])
+        } catch {
+            print("Error sending data to watch: \(error)")
+        }
+    }
 }
 
 extension ViewModelPhone: WCSessionDelegate {

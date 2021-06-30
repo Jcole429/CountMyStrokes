@@ -30,6 +30,9 @@
 		B41787A6268BF697004FFD23 /* EqualCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41787A5268BF697004FFD23 /* EqualCenter.swift */; };
 		B46F1A63268BFEE3009BB0B7 /* ViewModelPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A62268BFEE3009BB0B7 /* ViewModelPhone.swift */; };
 		B46F1A66268BFFE9009BB0B7 /* ViewModelWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A65268BFFE9009BB0B7 /* ViewModelWatch.swift */; };
+		B46F1A67268C1519009BB0B7 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879A268BF553004FFD23 /* GameManager.swift */; };
+		B46F1A68268C15EA009BB0B7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178798268BF538004FFD23 /* Game.swift */; };
+		B46F1A69268C15ED009BB0B7 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178796268BF530004FFD23 /* Hole.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -403,9 +406,12 @@
 				B417877C268BF497004FFD23 /* NotificationController.swift in Sources */,
 				B46F1A66268BFFE9009BB0B7 /* ViewModelWatch.swift in Sources */,
 				B417877A268BF497004FFD23 /* ContentView.swift in Sources */,
+				B46F1A67268C1519009BB0B7 /* GameManager.swift in Sources */,
+				B46F1A69268C15ED009BB0B7 /* Hole.swift in Sources */,
 				B4178780268BF497004FFD23 /* ComplicationController.swift in Sources */,
 				B4178778268BF497004FFD23 /* CountMyStrokes2App.swift in Sources */,
 				B417877E268BF497004FFD23 /* NotificationView.swift in Sources */,
+				B46F1A68268C15EA009BB0B7 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

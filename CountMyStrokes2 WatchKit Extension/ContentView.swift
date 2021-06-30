@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    var viewModelWatch = ViewModelWatch()
+    @ObservedObject var viewModelWatch = ViewModelWatch()
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        Text(self.viewModelWatch.messageText)
     }
 }
 
