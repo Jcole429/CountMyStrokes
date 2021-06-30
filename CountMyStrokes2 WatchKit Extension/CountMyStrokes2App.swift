@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 @main
 struct CountMyStrokes2App: App {

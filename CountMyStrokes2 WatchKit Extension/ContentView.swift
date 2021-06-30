@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    var viewModelWatch = ViewModelWatch()
     var body: some View {
         Text("Hello, World!")
             .padding()

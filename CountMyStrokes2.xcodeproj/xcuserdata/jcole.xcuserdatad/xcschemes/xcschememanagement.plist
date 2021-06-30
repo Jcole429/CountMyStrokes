@@ -4,25 +4,38 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CountMyStrokes2 WatchKit App (Complication).xcscheme_^#shared#^_</key>
+		<key>CountMyStrokes2 WatchKit App (Complication).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>CountMyStrokes2 WatchKit App (Notification).xcscheme_^#shared#^_</key>
+		<key>CountMyStrokes2 WatchKit App (Notification).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>CountMyStrokes2 WatchKit App.xcscheme_^#shared#^_</key>
+		<key>CountMyStrokes2 WatchKit App.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>CountMyStrokes2.xcscheme_^#shared#^_</key>
+		<key>CountMyStrokes2.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B4178756268BF492004FFD23</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4178765268BF496004FFD23</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -21,6 +21,15 @@
 		B4178780268BF497004FFD23 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417877F268BF497004FFD23 /* ComplicationController.swift */; };
 		B4178782268BF498004FFD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178781268BF498004FFD23 /* Assets.xcassets */; };
 		B4178785268BF498004FFD23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178784268BF498004FFD23 /* Preview Assets.xcassets */; };
+		B4178797268BF530004FFD23 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178796268BF530004FFD23 /* Hole.swift */; };
+		B4178799268BF538004FFD23 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178798268BF538004FFD23 /* Game.swift */; };
+		B417879B268BF553004FFD23 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879A268BF553004FFD23 /* GameManager.swift */; };
+		B417879F268BF600004FFD23 /* HoleInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879E268BF600004FFD23 /* HoleInfoView.swift */; };
+		B41787A2268BF63A004FFD23 /* Button1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41787A1268BF63A004FFD23 /* Button1.swift */; };
+		B41787A4268BF681004FFD23 /* Stepper1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41787A3268BF681004FFD23 /* Stepper1.swift */; };
+		B41787A6268BF697004FFD23 /* EqualCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41787A5268BF697004FFD23 /* EqualCenter.swift */; };
+		B46F1A63268BFEE3009BB0B7 /* ViewModelPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A62268BFEE3009BB0B7 /* ViewModelPhone.swift */; };
+		B46F1A66268BFFE9009BB0B7 /* ViewModelWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A65268BFFE9009BB0B7 /* ViewModelWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +94,15 @@
 		B4178784268BF498004FFD23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B4178786268BF498004FFD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4178787268BF498004FFD23 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B4178796268BF530004FFD23 /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
+		B4178798268BF538004FFD23 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B417879A268BF553004FFD23 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		B417879E268BF600004FFD23 /* HoleInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleInfoView.swift; sourceTree = "<group>"; };
+		B41787A1268BF63A004FFD23 /* Button1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button1.swift; sourceTree = "<group>"; };
+		B41787A3268BF681004FFD23 /* Stepper1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper1.swift; sourceTree = "<group>"; };
+		B41787A5268BF697004FFD23 /* EqualCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualCenter.swift; sourceTree = "<group>"; };
+		B46F1A62268BFEE3009BB0B7 /* ViewModelPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelPhone.swift; sourceTree = "<group>"; };
+		B46F1A65268BFFE9009BB0B7 /* ViewModelWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +146,9 @@
 		B4178759268BF492004FFD23 /* CountMyStrokes2 */ = {
 			isa = PBXGroup;
 			children = (
-				B417875A268BF492004FFD23 /* CountMyStrokes2App.swift */,
-				B417875C268BF492004FFD23 /* ContentView.swift */,
+				B4178795268BF51A004FFD23 /* Models */,
+				B417879C268BF593004FFD23 /* Views */,
+				B46F1A61268BFE73009BB0B7 /* ViewModels */,
 				B417875E268BF496004FFD23 /* Assets.xcassets */,
 				B4178763268BF496004FFD23 /* Info.plist */,
 				B4178760268BF496004FFD23 /* Preview Content */,
@@ -157,6 +176,7 @@
 		B4178776268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B46F1A64268BFFD5009BB0B7 /* ViewModels */,
 				B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */,
 				B4178779268BF497004FFD23 /* ContentView.swift */,
 				B417877B268BF497004FFD23 /* NotificationController.swift */,
@@ -176,6 +196,61 @@
 				B4178784268BF498004FFD23 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B4178795268BF51A004FFD23 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4178796268BF530004FFD23 /* Hole.swift */,
+				B4178798268BF538004FFD23 /* Game.swift */,
+				B417879A268BF553004FFD23 /* GameManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B417879C268BF593004FFD23 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B41787A0268BF629004FFD23 /* Components */,
+				B417879D268BF5E6004FFD23 /* SubViews */,
+				B417875A268BF492004FFD23 /* CountMyStrokes2App.swift */,
+				B417875C268BF492004FFD23 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B417879D268BF5E6004FFD23 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				B417879E268BF600004FFD23 /* HoleInfoView.swift */,
+				B41787A3268BF681004FFD23 /* Stepper1.swift */,
+				B41787A5268BF697004FFD23 /* EqualCenter.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		B41787A0268BF629004FFD23 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B41787A1268BF63A004FFD23 /* Button1.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B46F1A61268BFE73009BB0B7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B46F1A62268BFEE3009BB0B7 /* ViewModelPhone.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B46F1A64268BFFD5009BB0B7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B46F1A65268BFFE9009BB0B7 /* ViewModelWatch.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +383,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B417879F268BF600004FFD23 /* HoleInfoView.swift in Sources */,
+				B41787A6268BF697004FFD23 /* EqualCenter.swift in Sources */,
 				B417875D268BF492004FFD23 /* ContentView.swift in Sources */,
+				B4178797268BF530004FFD23 /* Hole.swift in Sources */,
+				B41787A2268BF63A004FFD23 /* Button1.swift in Sources */,
+				B46F1A63268BFEE3009BB0B7 /* ViewModelPhone.swift in Sources */,
 				B417875B268BF492004FFD23 /* CountMyStrokes2App.swift in Sources */,
+				B41787A4268BF681004FFD23 /* Stepper1.swift in Sources */,
+				B4178799268BF538004FFD23 /* Game.swift in Sources */,
+				B417879B268BF553004FFD23 /* GameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B417877C268BF497004FFD23 /* NotificationController.swift in Sources */,
+				B46F1A66268BFFE9009BB0B7 /* ViewModelWatch.swift in Sources */,
 				B417877A268BF497004FFD23 /* ContentView.swift in Sources */,
 				B4178780268BF497004FFD23 /* ComplicationController.swift in Sources */,
 				B4178778268BF497004FFD23 /* CountMyStrokes2App.swift in Sources */,
