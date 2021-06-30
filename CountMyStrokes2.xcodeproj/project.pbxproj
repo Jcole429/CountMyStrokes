@@ -1,0 +1,634 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B417875B268BF492004FFD23 /* CountMyStrokes2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417875A268BF492004FFD23 /* CountMyStrokes2App.swift */; };
+		B417875D268BF492004FFD23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417875C268BF492004FFD23 /* ContentView.swift */; };
+		B417875F268BF496004FFD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B417875E268BF496004FFD23 /* Assets.xcassets */; };
+		B4178762268BF496004FFD23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178761268BF496004FFD23 /* Preview Assets.xcassets */; };
+		B4178767268BF496004FFD23 /* CountMyStrokes2 WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B4178766268BF496004FFD23 /* CountMyStrokes2 WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B417876C268BF497004FFD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B417876B268BF497004FFD23 /* Assets.xcassets */; };
+		B4178773268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4178772268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B4178778268BF497004FFD23 /* CountMyStrokes2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */; };
+		B417877A268BF497004FFD23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178779268BF497004FFD23 /* ContentView.swift */; };
+		B417877C268BF497004FFD23 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417877B268BF497004FFD23 /* NotificationController.swift */; };
+		B417877E268BF497004FFD23 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417877D268BF497004FFD23 /* NotificationView.swift */; };
+		B4178780268BF497004FFD23 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417877F268BF497004FFD23 /* ComplicationController.swift */; };
+		B4178782268BF498004FFD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178781268BF498004FFD23 /* Assets.xcassets */; };
+		B4178785268BF498004FFD23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178784268BF498004FFD23 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B4178768268BF496004FFD23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B417874F268BF491004FFD23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4178765268BF496004FFD23;
+			remoteInfo = "CountMyStrokes2 WatchKit App";
+		};
+		B4178774268BF497004FFD23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B417874F268BF491004FFD23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4178771268BF497004FFD23;
+			remoteInfo = "CountMyStrokes2 WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B417878D268BF498004FFD23 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B4178773268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4178791268BF498004FFD23 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B4178767268BF496004FFD23 /* CountMyStrokes2 WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B4178757268BF492004FFD23 /* CountMyStrokes2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountMyStrokes2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B417875A268BF492004FFD23 /* CountMyStrokes2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMyStrokes2App.swift; sourceTree = "<group>"; };
+		B417875C268BF492004FFD23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B417875E268BF496004FFD23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4178761268BF496004FFD23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B4178763268BF496004FFD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4178766268BF496004FFD23 /* CountMyStrokes2 WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CountMyStrokes2 WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B417876B268BF497004FFD23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B417876D268BF497004FFD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4178772268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CountMyStrokes2 WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMyStrokes2App.swift; sourceTree = "<group>"; };
+		B4178779268BF497004FFD23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B417877B268BF497004FFD23 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B417877D268BF497004FFD23 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		B417877F268BF497004FFD23 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		B4178781268BF498004FFD23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4178784268BF498004FFD23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B4178786268BF498004FFD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4178787268BF498004FFD23 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4178754268BF492004FFD23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B417876F268BF497004FFD23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B417874E268BF491004FFD23 = {
+			isa = PBXGroup;
+			children = (
+				B4178759268BF492004FFD23 /* CountMyStrokes2 */,
+				B417876A268BF496004FFD23 /* CountMyStrokes2 WatchKit App */,
+				B4178776268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension */,
+				B4178758268BF492004FFD23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4178758268BF492004FFD23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4178757268BF492004FFD23 /* CountMyStrokes2.app */,
+				B4178766268BF496004FFD23 /* CountMyStrokes2 WatchKit App.app */,
+				B4178772268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4178759268BF492004FFD23 /* CountMyStrokes2 */ = {
+			isa = PBXGroup;
+			children = (
+				B417875A268BF492004FFD23 /* CountMyStrokes2App.swift */,
+				B417875C268BF492004FFD23 /* ContentView.swift */,
+				B417875E268BF496004FFD23 /* Assets.xcassets */,
+				B4178763268BF496004FFD23 /* Info.plist */,
+				B4178760268BF496004FFD23 /* Preview Content */,
+			);
+			path = CountMyStrokes2;
+			sourceTree = "<group>";
+		};
+		B4178760268BF496004FFD23 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B4178761268BF496004FFD23 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B417876A268BF496004FFD23 /* CountMyStrokes2 WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				B417876B268BF497004FFD23 /* Assets.xcassets */,
+				B417876D268BF497004FFD23 /* Info.plist */,
+			);
+			path = "CountMyStrokes2 WatchKit App";
+			sourceTree = "<group>";
+		};
+		B4178776268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */,
+				B4178779268BF497004FFD23 /* ContentView.swift */,
+				B417877B268BF497004FFD23 /* NotificationController.swift */,
+				B417877D268BF497004FFD23 /* NotificationView.swift */,
+				B417877F268BF497004FFD23 /* ComplicationController.swift */,
+				B4178781268BF498004FFD23 /* Assets.xcassets */,
+				B4178786268BF498004FFD23 /* Info.plist */,
+				B4178787268BF498004FFD23 /* PushNotificationPayload.apns */,
+				B4178783268BF498004FFD23 /* Preview Content */,
+			);
+			path = "CountMyStrokes2 WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		B4178783268BF498004FFD23 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B4178784268BF498004FFD23 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4178756268BF492004FFD23 /* CountMyStrokes2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4178792268BF498004FFD23 /* Build configuration list for PBXNativeTarget "CountMyStrokes2" */;
+			buildPhases = (
+				B4178753268BF492004FFD23 /* Sources */,
+				B4178754268BF492004FFD23 /* Frameworks */,
+				B4178755268BF492004FFD23 /* Resources */,
+				B4178791268BF498004FFD23 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4178769268BF496004FFD23 /* PBXTargetDependency */,
+			);
+			name = CountMyStrokes2;
+			productName = CountMyStrokes2;
+			productReference = B4178757268BF492004FFD23 /* CountMyStrokes2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B4178765268BF496004FFD23 /* CountMyStrokes2 WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B417878E268BF498004FFD23 /* Build configuration list for PBXNativeTarget "CountMyStrokes2 WatchKit App" */;
+			buildPhases = (
+				B4178764268BF496004FFD23 /* Resources */,
+				B417878D268BF498004FFD23 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4178775268BF497004FFD23 /* PBXTargetDependency */,
+			);
+			name = "CountMyStrokes2 WatchKit App";
+			productName = "CountMyStrokes2 WatchKit App";
+			productReference = B4178766268BF496004FFD23 /* CountMyStrokes2 WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B4178771268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B417878A268BF498004FFD23 /* Build configuration list for PBXNativeTarget "CountMyStrokes2 WatchKit Extension" */;
+			buildPhases = (
+				B417876E268BF497004FFD23 /* Sources */,
+				B417876F268BF497004FFD23 /* Frameworks */,
+				B4178770268BF497004FFD23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CountMyStrokes2 WatchKit Extension";
+			productName = "CountMyStrokes2 WatchKit Extension";
+			productReference = B4178772268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B417874F268BF491004FFD23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					B4178756268BF492004FFD23 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					B4178765268BF496004FFD23 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					B4178771268BF497004FFD23 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = B4178752268BF491004FFD23 /* Build configuration list for PBXProject "CountMyStrokes2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B417874E268BF491004FFD23;
+			productRefGroup = B4178758268BF492004FFD23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4178756268BF492004FFD23 /* CountMyStrokes2 */,
+				B4178765268BF496004FFD23 /* CountMyStrokes2 WatchKit App */,
+				B4178771268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4178755268BF492004FFD23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4178762268BF496004FFD23 /* Preview Assets.xcassets in Resources */,
+				B417875F268BF496004FFD23 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4178764268BF496004FFD23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B417876C268BF497004FFD23 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4178770268BF497004FFD23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4178785268BF498004FFD23 /* Preview Assets.xcassets in Resources */,
+				B4178782268BF498004FFD23 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4178753268BF492004FFD23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B417875D268BF492004FFD23 /* ContentView.swift in Sources */,
+				B417875B268BF492004FFD23 /* CountMyStrokes2App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B417876E268BF497004FFD23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B417877C268BF497004FFD23 /* NotificationController.swift in Sources */,
+				B417877A268BF497004FFD23 /* ContentView.swift in Sources */,
+				B4178780268BF497004FFD23 /* ComplicationController.swift in Sources */,
+				B4178778268BF497004FFD23 /* CountMyStrokes2App.swift in Sources */,
+				B417877E268BF497004FFD23 /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4178769268BF496004FFD23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4178765268BF496004FFD23 /* CountMyStrokes2 WatchKit App */;
+			targetProxy = B4178768268BF496004FFD23 /* PBXContainerItemProxy */;
+		};
+		B4178775268BF497004FFD23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4178771268BF497004FFD23 /* CountMyStrokes2 WatchKit Extension */;
+			targetProxy = B4178774268BF497004FFD23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B4178788268BF498004FFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B4178789268BF498004FFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B417878B268BF498004FFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CountMyStrokes2 WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 2XPZNY5GTW;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "CountMyStrokes2 WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.CountMyStrokes2.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		B417878C268BF498004FFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CountMyStrokes2 WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = 2XPZNY5GTW;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "CountMyStrokes2 WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.CountMyStrokes2.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		B417878F268BF498004FFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2XPZNY5GTW;
+				IBSC_MODULE = CountMyStrokes2_WatchKit_Extension;
+				INFOPLIST_FILE = "CountMyStrokes2 WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.CountMyStrokes2.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		B4178790268BF498004FFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2XPZNY5GTW;
+				IBSC_MODULE = CountMyStrokes2_WatchKit_Extension;
+				INFOPLIST_FILE = "CountMyStrokes2 WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.CountMyStrokes2.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		B4178793268BF498004FFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CountMyStrokes2/Preview Content\"";
+				DEVELOPMENT_TEAM = 2XPZNY5GTW;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CountMyStrokes2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.CountMyStrokes2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B4178794268BF498004FFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CountMyStrokes2/Preview Content\"";
+				DEVELOPMENT_TEAM = 2XPZNY5GTW;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CountMyStrokes2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jcole.CountMyStrokes2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4178752268BF491004FFD23 /* Build configuration list for PBXProject "CountMyStrokes2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4178788268BF498004FFD23 /* Debug */,
+				B4178789268BF498004FFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B417878A268BF498004FFD23 /* Build configuration list for PBXNativeTarget "CountMyStrokes2 WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B417878B268BF498004FFD23 /* Debug */,
+				B417878C268BF498004FFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B417878E268BF498004FFD23 /* Build configuration list for PBXNativeTarget "CountMyStrokes2 WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B417878F268BF498004FFD23 /* Debug */,
+				B4178790268BF498004FFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4178792268BF498004FFD23 /* Build configuration list for PBXNativeTarget "CountMyStrokes2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4178793268BF498004FFD23 /* Debug */,
+				B4178794268BF498004FFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B417874F268BF491004FFD23 /* Project object */;
+}
