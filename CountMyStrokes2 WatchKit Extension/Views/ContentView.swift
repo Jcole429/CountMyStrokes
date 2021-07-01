@@ -14,6 +14,33 @@ struct ContentView: View {
     
     var body: some View {
         let gameManager = model.gameManager
+        let detectDirectionalDrags = DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+        .onEnded { value in
+            print(value.translation)
+            
+            if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
+                print("left swipe")
+                model.objectWillChange.send()
+                _ = model.gameManager.nextHole()
+                model.updatePhone()
+            }
+            else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                print("left right")
+                model.objectWillChange.send()
+                _ = model.gameManager.previousHole()
+                model.updatePhone()
+            }
+            else if value.translation.height < 0 && value.translation.width < 100 && value.translation.width > -100 {
+                print("up swipe")
+            }
+            else if value.translation.height > 0 && value.translation.width < 100 && value.translation.width > -100 {
+                print("down swipe")
+            }
+            else {
+                print("no clue")
+            }
+        }
+        
         VStack(alignment: .leading) {
             Text("Score: \(gameManager.game.totalScore)")
             HStack{
@@ -62,7 +89,7 @@ struct ContentView: View {
                     model.updatePhone()
                 }
             }
-        }
+        }.gesture(detectDirectionalDrags)
     }
 }
 
