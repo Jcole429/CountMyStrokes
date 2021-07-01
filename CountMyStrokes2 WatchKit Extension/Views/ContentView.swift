@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         let gameManager = model.gameManager
         VStack(alignment: .leading) {
-            Text("Score: \(gameManager.getCurrentHole().totalStrokesTaken)")
+            Text("Score: \(gameManager.game.totalScore)")
             HStack{
                 Text("Hole# \(model.gameManager.currentHoleIndex + 1)")
                 Spacer()
@@ -23,32 +23,44 @@ struct ContentView: View {
             }
             HStack{
                 Button1(labelText: "General: \(model.gameManager.getCurrentHole().strokesTaken)") {
-                    print("Short Press")
-                    print("Strokes taken: \(model.gameManager.getCurrentHole().strokesTaken)")
-//                    model.objectWillChange.send()
+                    model.objectWillChange.send()
                     model.gameManager.incrementCurrentHoleStrokesTaken()
+                    model.updatePhone()
                 } longPressAction: {
+                    model.objectWillChange.send()
                     model.gameManager.decrementCurrentHoleStrokesTaken()
+                    model.updatePhone()
                 }
                 Button1(labelText: "Chips: \(model.gameManager.getCurrentHole().chipsTaken)") {
-                    print("Short Press")
+                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHoleChipsTaken()
+                    model.updatePhone()
                 } longPressAction: {
-                    print("Long Press")
+                    model.objectWillChange.send()
+                    model.gameManager.decrementCurrentHoleChipsTaken()
+                    model.updatePhone()
                 }
             }
             Spacer()
             HStack{
                 Button1(labelText: "Puts: \(model.gameManager.getCurrentHole().putsTaken)") {
-                    print("Short Press")
+                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHolePutsTaken()
+                    model.updatePhone()
                 } longPressAction: {
-                    print("Long Press")
+                    model.objectWillChange.send()
+                    model.gameManager.decrementCurrentHolePutsTaken()
+                    model.updatePhone()
                 }
                 Button1(labelText: "Penalties: \(model.gameManager.getCurrentHole().penaltiesTaken)") {
-                    print("Short Press")
+                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHolePenaltiesTaken()
+                    model.updatePhone()
                 } longPressAction: {
-                    print("Long Press")
+                    model.objectWillChange.send()
+                    model.gameManager.decrementCurrentHolePenaltiesTaken()
+                    model.updatePhone()
                 }
-
             }
         }
     }

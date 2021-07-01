@@ -12,7 +12,6 @@ class GameManager: Codable, ObservableObject {
     
     @Published var game = Game(holes: [Hole(holeNumber: 1, par: nil)])
     @Published var currentHoleIndex = 0
-    @Published var testInt = 0
     
     enum ChildKeys: CodingKey {
         case game, currentHoleIndex

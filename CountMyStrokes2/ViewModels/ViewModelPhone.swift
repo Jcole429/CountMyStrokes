@@ -57,6 +57,7 @@ extension ViewModelPhone: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
         print("Phone - didReceiveMessageData \(messageData)")
         DispatchQueue.main.async {
+            self.objectWillChange.send()
             self.gameManager.importData(data: messageData)
         }
     }
@@ -64,6 +65,7 @@ extension ViewModelPhone: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         print("Phone - didReceiveApplicationContext \(applicationContext)")
         DispatchQueue.main.async {
+            self.objectWillChange.send()
             self.gameManager.importData(data: applicationContext["gameManager"] as! Data)
         }
         
