@@ -8,18 +8,64 @@
 import SwiftUI
 
 struct HoleInfoView: View {
-//    @ObservedObject var hole: Hole
-    @EnvironmentObject var gameManager: GameManager
+    @EnvironmentObject var model: ViewModelPhone
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Total Score: \(gameManager.game.totalScore)")
-            Text("Hole #\(gameManager.getCurrentHole().holeNumber)")
-            Text("Hole Strokes: \(gameManager.getCurrentHole().totalStrokesTaken)")
-            Stepper1(label: "General:", passedVar: $gameManager.game.holes[gameManager.currentHoleIndex].strokesTaken)
-            Stepper1(label: "Chips:", passedVar: $gameManager.game.holes[gameManager.currentHoleIndex].chipsTaken)
-            Stepper1(label: "Puts:", passedVar: $gameManager.game.holes[gameManager.currentHoleIndex].putsTaken)
-            Stepper1(label: "Penalties:", passedVar: $gameManager.game.holes[gameManager.currentHoleIndex].penaltiesTaken)
+        VStack(alignment: .center, spacing: 10) {
+            Text("Hole #\(model.gameManager.getCurrentHole().holeNumber)")
+            Text("Hole Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)")
+            HoleInputSection(
+                label: "General: \(model.gameManager.getCurrentHole().strokesTaken)"
+                ,button1Image: Image(systemName: "minus")
+                ,button1Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.decrementCurrentHoleStrokesTaken()
+                    model.updateWatch()
+                },button2Image: Image(systemName: "plus")
+                ,Button2Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHoleStrokesTaken()
+                    model.updateWatch()
+                })
+            HoleInputSection(
+                label: "Chips: \(model.gameManager.getCurrentHole().chipsTaken)"
+                ,button1Image: Image(systemName: "minus")
+                ,button1Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.decrementCurrentHoleChipsTaken()
+                    model.updateWatch()
+                },button2Image: Image(systemName: "plus")
+                ,Button2Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHoleChipsTaken()
+                    model.updateWatch()
+                })
+            HoleInputSection(
+                label: "Puts: \(model.gameManager.getCurrentHole().putsTaken)"
+                ,button1Image: Image(systemName: "minus")
+                ,button1Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.decrementCurrentHolePutsTaken()
+                    model.updateWatch()
+                },button2Image: Image(systemName: "plus")
+                ,Button2Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHolePutsTaken()
+                    model.updateWatch()
+                })
+            HoleInputSection(
+                label: "Penalties: \(model.gameManager.getCurrentHole().penaltiesTaken)"
+                ,button1Image: Image(systemName: "minus")
+                ,button1Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.decrementCurrentHolePenaltiesTaken()
+                    model.updateWatch()
+                },button2Image: Image(systemName: "plus")
+                ,Button2Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHolePenaltiesTaken()
+                    model.updateWatch()
+                })
             EqualCenter(firstView: AnyView(Text("Green in Regulation:")), secondView: AnyView(
                 HStack {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
@@ -45,7 +91,7 @@ struct HoleInfoView_Previews: PreviewProvider {
                 .cornerRadius(8)
                 .opacity(0.5)
                 .padding(.horizontal, 30)
-            HoleInfoView().environmentObject(gameManagerPreview)
+            HoleInfoView().environmentObject(model)
         }
     }
 }

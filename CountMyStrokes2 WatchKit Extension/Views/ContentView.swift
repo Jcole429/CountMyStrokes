@@ -8,24 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModelWatch = ViewModelWatch()
+    @ObservedObject var model = ViewModelWatch()
+    
     @State private var didLongPress = false
+    
     var body: some View {
-        //        Text(self.viewModelWatch.messageText)
+        let gameManager = model.gameManager
         VStack(alignment: .leading) {
-            Text("Score: 100")
+            Text("Score: \(gameManager.getCurrentHole().totalStrokesTaken)")
             HStack{
-                Text("Hole# 18")
+                Text("Hole# \(model.gameManager.currentHoleIndex + 1)")
                 Spacer()
-                Text("Strokes: 10")
+                Text("Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)")
             }
             HStack{
-                Button1(labelText: "General: 10") {
+                Button1(labelText: "General: \(model.gameManager.getCurrentHole().strokesTaken)") {
                     print("Short Press")
+                    print("Strokes taken: \(model.gameManager.getCurrentHole().strokesTaken)")
+//                    model.objectWillChange.send()
+                    model.gameManager.incrementCurrentHoleStrokesTaken()
                 } longPressAction: {
-                    print("Long Press")
+                    model.gameManager.decrementCurrentHoleStrokesTaken()
                 }
-                Button1(labelText: "Chips: 10") {
+                Button1(labelText: "Chips: \(model.gameManager.getCurrentHole().chipsTaken)") {
                     print("Short Press")
                 } longPressAction: {
                     print("Long Press")
@@ -33,12 +38,12 @@ struct ContentView: View {
             }
             Spacer()
             HStack{
-                Button1(labelText: "Puts: 10") {
+                Button1(labelText: "Puts: \(model.gameManager.getCurrentHole().putsTaken)") {
                     print("Short Press")
                 } longPressAction: {
                     print("Long Press")
                 }
-                Button1(labelText: "Penalties: 10") {
+                Button1(labelText: "Penalties: \(model.gameManager.getCurrentHole().penaltiesTaken)") {
                     print("Short Press")
                 } longPressAction: {
                     print("Long Press")
@@ -50,7 +55,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @ObservedObject var viewModelWatch = ViewModelWatch()
+    var model = ViewModelWatch()
     static var previews: some View {
         ContentView()
             .previewDevice("Apple Watch Series 6 - 40mm")

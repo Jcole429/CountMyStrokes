@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import WatchConnectivity
 
 @main
 struct CountMyStrokes2App: App {
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {

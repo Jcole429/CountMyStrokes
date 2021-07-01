@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import Combine
 
-class Game: Codable, ObservableObject {
-    var didChange = PassthroughSubject<Void, Never>()
+struct Game: Codable {
+    var holes: [Hole]
     var totalScore: Int {
         get {
             var sum = 0
@@ -18,35 +17,5 @@ class Game: Codable, ObservableObject {
             }
             return sum
         }
-    }
-    
-    var holes: [Hole] {
-        willSet {
-            print("WillSet holes")
-            objectWillChange.send()
-        }
-        didSet {
-            print("Game.holes - didChange.send()")
-            didChange.send()
-        }
-    }
-    
-    enum ChildKeys: CodingKey {
-        case holes
-    }
-    
-    
-    init(holes: [Hole]) {
-        self.holes = holes
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ChildKeys.self)
-        self.holes = try container.decode([Hole].self, forKey: .holes)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: ChildKeys.self)
-        try container.encode(self.holes, forKey: .holes)
     }
 }

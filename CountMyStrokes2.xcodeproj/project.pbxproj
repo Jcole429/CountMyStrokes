@@ -35,6 +35,7 @@
 		B46F1A69268C15ED009BB0B7 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178796268BF530004FFD23 /* Hole.swift */; };
 		B46F1A6D268CC16B009BB0B7 /* ButtonStyle1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A6C268CC16B009BB0B7 /* ButtonStyle1.swift */; };
 		B46F1A73268CE2A7009BB0B7 /* Button1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A72268CE2A7009BB0B7 /* Button1.swift */; };
+		B46F1A79268E5D63009BB0B7 /* HoleInputSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A78268E5D63009BB0B7 /* HoleInputSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		B46F1A65268BFFE9009BB0B7 /* ViewModelWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWatch.swift; sourceTree = "<group>"; };
 		B46F1A6C268CC16B009BB0B7 /* ButtonStyle1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle1.swift; sourceTree = "<group>"; };
 		B46F1A72268CE2A7009BB0B7 /* Button1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button1.swift; sourceTree = "<group>"; };
+		B46F1A78268E5D63009BB0B7 /* HoleInputSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleInputSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				B417879E268BF600004FFD23 /* HoleInfoView.swift */,
-				B41787A3268BF681004FFD23 /* Stepper1.swift */,
+				B46F1A78268E5D63009BB0B7 /* HoleInputSection.swift */,
 				B41787A5268BF697004FFD23 /* EqualCenter.swift */,
+				B41787A3268BF681004FFD23 /* Stepper1.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				B417875B268BF492004FFD23 /* CountMyStrokes2App.swift in Sources */,
 				B41787A4268BF681004FFD23 /* Stepper1.swift in Sources */,
 				B4178799268BF538004FFD23 /* Game.swift in Sources */,
+				B46F1A79268E5D63009BB0B7 /* HoleInputSection.swift in Sources */,
 				B417879B268BF553004FFD23 /* GameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

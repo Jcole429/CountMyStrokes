@@ -5,15 +5,13 @@
 //  Created by Justin Cole on 6/29/21.
 //
 
-import Foundation
+import SwiftUI
 import WatchConnectivity
 
 class ViewModelWatch: NSObject, ObservableObject {
     
     var session: WCSession
-    
-    @Published var testString = "No bueno"
-    @Published var messageText = ""
+    @Published var gameManager = GameManager()
     
     init(session: WCSession = .default) {
         self.session = session
@@ -50,11 +48,17 @@ extension ViewModelWatch: WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
         print("Watch - didReceiveMessageData: \(messageData)")
-        gameManager.importData(data: messageData)
+        DispatchQueue.main.async {
+            self.objectWillChange.send()
+            self.gameManager.importData(data: messageData)
+        }
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         print("Watch - didReceiveApplicationContext: \(applicationContext)")
-        gameManager.importData(data: applicationContext["gameManager"] as! Data)
+        DispatchQueue.main.async {
+            self.objectWillChange.send()
+            self.gameManager.importData(data: applicationContext["gameManager"] as! Data)
+        }
     }
 }

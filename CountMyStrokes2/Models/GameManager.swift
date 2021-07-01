@@ -7,16 +7,12 @@
 
 import Foundation
 
-class GameManager: Codable, ObservableObject{
+class GameManager: Codable, ObservableObject {
     static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Games.plist")
     
-    var game = Game(holes: [Hole(holeNumber: 1, par: nil)]) {
-        willSet {
-            print("WillSet game")
-            objectWillChange.send()
-        }
-    }
+    @Published var game = Game(holes: [Hole(holeNumber: 1, par: nil)])
     @Published var currentHoleIndex = 0
+    @Published var testInt = 0
     
     enum ChildKeys: CodingKey {
         case game, currentHoleIndex
@@ -44,6 +40,7 @@ class GameManager: Codable, ObservableObject{
     }
     
     func updateStrokesTaken(holeIndex: Int?, newValue: Int) {
+        self.objectWillChange.send()
         if let index = holeIndex {
             game.holes[index].strokesTaken = newValue
         } else {
@@ -175,8 +172,10 @@ class GameManager: Codable, ObservableObject{
         let decoder = PropertyListDecoder()
         do {
             let updatedGameManager = try decoder.decode(GameManager.self, from: data)
+            self.objectWillChange.send()
             self.game = updatedGameManager.game
             self.currentHoleIndex = updatedGameManager.currentHoleIndex
+            print("Imported gameManager data")
         } catch {
             print("Error decoding gameManager, \(error)")
         }

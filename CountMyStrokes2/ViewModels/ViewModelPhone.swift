@@ -5,11 +5,13 @@
 //  Created by Justin Cole on 6/29/21.
 //
 
-import Foundation
+import SwiftUI
 import WatchConnectivity
 
-class ViewModelPhone: NSObject {
+class ViewModelPhone: NSObject, ObservableObject {
+    
     var session: WCSession
+    @Published var gameManager = GameManager()
     
     init(session: WCSession = .default) {
         self.session = session
@@ -22,7 +24,7 @@ class ViewModelPhone: NSObject {
         if session.activationState == .activated {
             if session.isReachable {
                 print("Phone - sendMessageData()")
-                WCSession.default.sendMessageData(gameManager.getData()!) { response in
+                session.sendMessageData(gameManager.getData()!) { response in
                     print("Response: \(response)")
                 } errorHandler: { error in
                     print("Error \(error)")
@@ -30,7 +32,7 @@ class ViewModelPhone: NSObject {
             } else {
                 do {
                     print("Phone - updateApplicationContext()")
-                    try WCSession.default.updateApplicationContext(["gameManager": gameManager.getData()!])
+                    try session.updateApplicationContext(["gameManager": gameManager.getData()!])
                 } catch {
                     print("Error sending data to watch: \(error)")
                 }

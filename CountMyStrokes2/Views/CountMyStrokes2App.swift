@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct CountMyStrokes2App: App {
-    var gameManager = GameManager()
+    
+    @ObservedObject var model = ViewModelPhone()
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(gameManager)
+            ContentView().environmentObject(model)
         }
     }
 }

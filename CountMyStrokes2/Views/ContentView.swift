@@ -8,87 +8,74 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var gameManager: GameManager
+    @EnvironmentObject var model: ViewModelPhone
     
-    var model = ViewModelPhone()
     @State var reachable = "No"
     @State var messageText = ""
+    
     var body: some View {
-        Text("Reachable \(reachable)")
-                    
-                    Button(action: {
-                        model.updateWatch()
-                        if self.model.session.isReachable {
-                            self.reachable = "Yes"
+        ZStack {
+            Color.clear.overlay(
+                Image("golf-background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            )
+            .edgesIgnoringSafeArea(.all)
+            VStack {
+                Spacer()
+                ZStack{
+                    Color(.darkGray)
+                        .cornerRadius(8)
+                        .opacity(0.5)
+                        .padding(.horizontal, 30)
+                    VStack {
+                        Spacer()
+                        Text("Score:")
+                        Text("\(model.gameManager.game.totalScore)").font(.title)
+                        Spacer()
+                        HoleInfoView().environmentObject(model)
+                    }.foregroundColor(.white)
+                }
+                VStack() {
+                    Spacer()
+                    Button(action: {}, label: {
+                        Button1(label: "New Game") {
+                            model.objectWillChange.send()
+                            model.gameManager.newGame()
+                            model.updateWatch()
                         }
-                        else{
-                            self.reachable = "No"
+                    })
+                    Spacer()
+                    HStack() {
+                        Button1(label: "Hole \(model.gameManager.currentHoleIndex)") {
+                            model.objectWillChange.send()
+                            _ = model.gameManager.previousHole()
+                            model.updateWatch()
                         }
-                        
-                    }) {
-                        Text("Update")
+                        .frame(width: 150)
+                        .padding(.leading, 20)
+                        Spacer()
+                        Button1(label: "Hole #\(model.gameManager.currentHoleIndex + 2)") {
+                            model.objectWillChange.send()
+                            _ = model.gameManager.nextHole()
+                            model.updateWatch()
+                        }
+                        .frame(width: 150)
+                        .padding(.trailing, 20)
                     }
-        TextField("Input your message", text: $messageText)
-        Button(action: {
-            self.model.session.sendMessage(["message" : self.messageText], replyHandler: nil) { (error) in
-                print(error.localizedDescription)
-            }
-        }) {
-        Text("Send Message")
+                    Spacer()
+                }
+            }.frame(width: UIScreen.main.bounds.width - 60, height:  UIScreen.main.bounds.height-60)
         }
-//        VStack {
-//            Spacer()
-//            ZStack{
-//                Color(.darkGray)
-//                    .cornerRadius(8)
-//                    .opacity(0.5)
-//                    .padding(.horizontal, 30)
-//                VStack {
-//                    HoleInfoView().environmentObject(gameManager)
-//                }
-//            }
-//            Spacer()
-//            VStack() {
-//                Spacer()
-//                Button(action: {}, label: {
-//                    Button1(label: "New Game") {
-//                        gameManager.newGame()
-//                    }
-//                })
-//                Spacer()
-//                HStack() {
-//                    Button1(label: "Hole \(gameManager.currentHoleIndex)") {
-//                        _ = gameManager.previousHole()
-//                        print(gameManager.getCurrentHole().strokesTaken)
-//                        print(gameManager.getCurrentHole().totalStrokesTaken)
-//                    }
-//                    .frame(width: 150)
-//                    .padding(.leading, 20)
-//                    Spacer()
-//                    Button1(label: "Hole #\(gameManager.currentHoleIndex + 2)") {
-//                        _ = gameManager.nextHole()
-//                    }
-//                    .frame(width: 150)
-//                    .padding(.trailing, 20)
-//                }
-//                Spacer()
-//            }
-//        }.background(
-//            Image("golf-background")
-//                .resizable()
-//                .ignoresSafeArea()
-//                .scaledToFill()
-//        )
-//    }
-}
+    }
 }
 
-let gameManagerPreview = GameManager()
+let model = ViewModelPhone()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(gameManagerPreview)
-            .previewDevice("iPhone 8")
+        ContentView().environmentObject(model)
+            .previewDevice("iPhone 12 Pro Max")
         
     }
 }
