@@ -22,7 +22,7 @@ struct ContentView: View {
                 Text("Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)")
             }
             HStack{
-                Button1(labelText: "General: \(model.gameManager.getCurrentHole().strokesTaken)") {
+                Button1(labelText: "General:\n \(model.gameManager.getCurrentHole().strokesTaken)") {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHoleStrokesTaken()
                     model.updatePhone()
@@ -31,7 +31,7 @@ struct ContentView: View {
                     model.gameManager.decrementCurrentHoleStrokesTaken()
                     model.updatePhone()
                 }
-                Button1(labelText: "Chips: \(model.gameManager.getCurrentHole().chipsTaken)") {
+                Button1(labelText: "Chips:\n \(model.gameManager.getCurrentHole().chipsTaken)") {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHoleChipsTaken()
                     model.updatePhone()
@@ -43,7 +43,7 @@ struct ContentView: View {
             }
             Spacer()
             HStack{
-                Button1(labelText: "Puts: \(model.gameManager.getCurrentHole().putsTaken)") {
+                Button1(labelText: "Puts:\n \(model.gameManager.getCurrentHole().putsTaken)") {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHolePutsTaken()
                     model.updatePhone()
@@ -52,7 +52,7 @@ struct ContentView: View {
                     model.gameManager.decrementCurrentHolePutsTaken()
                     model.updatePhone()
                 }
-                Button1(labelText: "Penalties: \(model.gameManager.getCurrentHole().penaltiesTaken)") {
+                Button1(labelText: "Penalties:\n \(model.gameManager.getCurrentHole().penaltiesTaken)") {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHolePenaltiesTaken()
                     model.updatePhone()
