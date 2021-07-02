@@ -77,7 +77,10 @@ struct ContentView: View {
                 .padding(.horizontal, 30)
                 HStack{
                     Spacer()
-                    Text("Golf Vectors by Vecteezy").padding(.trailing)
+                    Text("Golf Vectors by Vecteezy")
+                        .padding(.trailing)
+                        .foregroundColor(.white)
+                    
                 }
             }
         }
