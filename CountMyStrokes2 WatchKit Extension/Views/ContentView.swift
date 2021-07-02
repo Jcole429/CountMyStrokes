@@ -48,6 +48,7 @@ struct ContentView: View {
                 Spacer()
                 Text("Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)")
             }
+            Spacer()
             HStack{
                 Button1(labelText: "General:\n \(model.gameManager.getCurrentHole().strokesTaken)") {
                     model.objectWillChange.send()

@@ -7,21 +7,19 @@
 
 import SwiftUI
 
-struct HoleInfoView: View {
+struct HoleInputView: View {
     @EnvironmentObject var model: ViewModelPhone
     
     var body: some View {
-        VStack(alignment: .center, spacing: 10) {
-            Text("Hole #\(model.gameManager.getCurrentHole().holeNumber)")
-            Text("Hole Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)")
+        VStack() {
             HoleInputSection(
                 label: "General: \(model.gameManager.getCurrentHole().strokesTaken)"
-                ,button1Image: Image(systemName: "minus")
+                ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
                     model.gameManager.decrementCurrentHoleStrokesTaken()
                     model.updateWatch()
-                },button2Image: Image(systemName: "plus")
+                },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHoleStrokesTaken()
@@ -29,12 +27,12 @@ struct HoleInfoView: View {
                 })
             HoleInputSection(
                 label: "Chips: \(model.gameManager.getCurrentHole().chipsTaken)"
-                ,button1Image: Image(systemName: "minus")
+                ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
                     model.gameManager.decrementCurrentHoleChipsTaken()
                     model.updateWatch()
-                },button2Image: Image(systemName: "plus")
+                },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHoleChipsTaken()
@@ -42,12 +40,12 @@ struct HoleInfoView: View {
                 })
             HoleInputSection(
                 label: "Puts: \(model.gameManager.getCurrentHole().putsTaken)"
-                ,button1Image: Image(systemName: "minus")
+                ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
                     model.gameManager.decrementCurrentHolePutsTaken()
                     model.updateWatch()
-                },button2Image: Image(systemName: "plus")
+                },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHolePutsTaken()
@@ -55,31 +53,33 @@ struct HoleInfoView: View {
                 })
             HoleInputSection(
                 label: "Penalties: \(model.gameManager.getCurrentHole().penaltiesTaken)"
-                ,button1Image: Image(systemName: "minus")
+                ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
                     model.gameManager.decrementCurrentHolePenaltiesTaken()
                     model.updateWatch()
-                },button2Image: Image(systemName: "plus")
+                },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
                     model.gameManager.incrementCurrentHolePenaltiesTaken()
                     model.updateWatch()
                 })
-            EqualCenter(firstView: AnyView(Text("Green in Regulation:")), secondView: AnyView(
-                HStack {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Image(systemName: "checkmark.circle")
-                    }.padding(.horizontal, 10)
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Image(systemName: "xmark.circle")
-                    }.padding(.horizontal, 10)
-                }
-            ))
+            HoleInputSection(
+                label: "Green in Regulation:  ",
+                button1ImageView: AnyView(Image(systemName: "checkmark.circle").foregroundColor(model.gameManager.getCurrentHole().greenInRegulation ?? false ? .green : .white)),
+                button1Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.pressedGreenInRegulation()
+                },
+                button2ImageView: AnyView(Image(systemName: "xmark.circle").foregroundColor(model.gameManager.getCurrentHole().greenInRegulation ?? true ? .white : .red)),
+                Button2Action: {
+                    model.objectWillChange.send()
+                    model.gameManager.pressedGreenNotInRegulation()
+                })
         }
-        .padding(.horizontal, 50)
         .foregroundColor(.white)
         .font(.title3)
+        .lineLimit(2)
     }
 }
 
@@ -90,8 +90,7 @@ struct HoleInfoView_Previews: PreviewProvider {
             Color(.darkGray)
                 .cornerRadius(8)
                 .opacity(0.5)
-                .padding(.horizontal, 30)
-            HoleInfoView().environmentObject(model)
+            HoleInputView().environmentObject(model)
         }
     }
 }

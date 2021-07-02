@@ -22,50 +22,56 @@ struct ContentView: View {
             )
             .edgesIgnoringSafeArea(.all)
             VStack {
-                Spacer()
-                ZStack{
-                    Color(.darkGray)
-                        .cornerRadius(8)
-                        .opacity(0.5)
-                        .padding(.horizontal, 30)
-                    VStack {
-                        Spacer()
-                        Text("Score:")
-                        Text("\(model.gameManager.game.totalScore)").font(.title)
-                        Spacer()
-                        HoleInfoView().environmentObject(model)
-                    }.foregroundColor(.white)
-                }
-                VStack() {
+                VStack {
                     Spacer()
-                    Button(action: {}, label: {
-                        Button1(label: "New Game") {
-                            model.objectWillChange.send()
-                            model.gameManager.newGame()
-                            model.updateWatch()
-                        }
-                    })
-                    Spacer()
-                    HStack() {
-                        Button1(label: "Hole \(model.gameManager.currentHoleIndex)") {
-                            model.objectWillChange.send()
-                            _ = model.gameManager.previousHole()
-                            model.updateWatch()
-                        }
-                        .frame(width: 150)
-                        .padding(.leading, 20)
-                        Spacer()
-                        Button1(label: "Hole #\(model.gameManager.currentHoleIndex + 2)") {
-                            model.objectWillChange.send()
-                            _ = model.gameManager.nextHole()
-                            model.updateWatch()
-                        }
-                        .frame(width: 150)
-                        .padding(.trailing, 20)
+                    ZStack{
+                        Color(.darkGray)
+                            .cornerRadius(8)
+                            .opacity(0.5)
+                        VStack {
+                            Spacer()
+                            Text("Score:").font(.title)
+                            Text("\(model.gameManager.game.totalScore)").font(.largeTitle)
+                            Spacer()
+                            Text("Hole #\(model.gameManager.getCurrentHole().holeNumber)").font(.title)
+                            Text("Hole Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)").font(.title)
+                            Spacer()
+                            HoleInputView().environmentObject(model)
+                            Spacer()
+                        }.foregroundColor(.white)
                     }
-                    Spacer()
+                    VStack() {
+                        Spacer()
+                        Button(action: {}, label: {
+                            Button1(label: "New Game") {
+                                model.objectWillChange.send()
+                                model.gameManager.newGame()
+                                model.updateWatch()
+                            }
+                        })
+                        Spacer()
+                        HStack() {
+                            Button1(label: "Hole \(model.gameManager.currentHoleIndex)") {
+                                model.objectWillChange.send()
+                                _ = model.gameManager.previousHole()
+                                model.updateWatch()
+                            }
+                            Spacer()
+                            Button1(label: "Hole #\(model.gameManager.currentHoleIndex + 2)") {
+                                model.objectWillChange.send()
+                                _ = model.gameManager.nextHole()
+                                model.updateWatch()
+                            }
+                        }
+                    }
                 }
-            }.frame(width: UIScreen.main.bounds.width - 60, height:  UIScreen.main.bounds.height-60)
+                .padding(.top, 50)
+                .padding(.horizontal, 30)
+                HStack{
+                    Spacer()
+                    Text("Golf Vectors by Vecteezy").padding(.trailing)
+                }
+            }
         }
     }
 }
@@ -75,7 +81,7 @@ let model = ViewModelPhone()
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environmentObject(model)
-            .previewDevice("iPhone 12 Pro Max")
+            .previewDevice("iPhone 8")
         
     }
 }

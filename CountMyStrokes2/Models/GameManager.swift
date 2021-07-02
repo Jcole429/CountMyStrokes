@@ -136,6 +136,22 @@ class GameManager: Codable, ObservableObject {
         self.game.holes[currentHoleIndex].greenInRegulation = result
     }
     
+    func pressedGreenInRegulation() {
+        if self.getCurrentHole().greenInRegulation != true {
+            self.setGreenInRegulation(result: true)
+        } else if self.getCurrentHole().greenInRegulation == true {
+            self.setGreenInRegulation(result: nil)
+        }
+    }
+    
+    func pressedGreenNotInRegulation() {
+        if self.getCurrentHole().greenInRegulation != false {
+            self.setGreenInRegulation(result: false)
+        } else if self.getCurrentHole().greenInRegulation == false {
+            self.setGreenInRegulation(result: nil)
+        }
+    }
+    
     func saveGameManager() {
         let encoder = PropertyListEncoder()
         do {
