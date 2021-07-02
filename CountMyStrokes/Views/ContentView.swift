@@ -10,8 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var model: ViewModelPhone
     
-    @State var reachable = "No"
-    @State var messageText = ""
+    @State var newGamePressed = false
     
     var body: some View {
         ZStack {
@@ -44,9 +43,18 @@ struct ContentView: View {
                         Spacer()
                         Button(action: {}, label: {
                             Button1(label: "New Game") {
-                                model.objectWillChange.send()
-                                model.gameManager.newGame()
-                                model.updateWatch()
+                                newGamePressed = true
+                            }.alert(isPresented:$newGamePressed) {
+                                Alert(
+                                    title: Text("New Game?"),
+                                    message: Text("All data will be lost."),
+                                    primaryButton: .destructive(Text("New Game")) {
+                                        model.objectWillChange.send()
+                                        model.gameManager.newGame()
+                                        model.updateWatch()
+                                    },
+                                    secondaryButton: .cancel()
+                                )
                             }
                         })
                         Spacer()
