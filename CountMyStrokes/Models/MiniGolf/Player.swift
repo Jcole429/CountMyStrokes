@@ -9,7 +9,8 @@ import Foundation
 
 struct Player: Codable {
     var name: String
-    var holes: [Hole]
+    var playerNum: Int
+    var holes: [Hole] = []
     var score: Int {
         get {
             var sum = 0

@@ -43,4 +43,19 @@ class MiniGolfGameManager: ObservableObject {
             print("Error loading mini golf game")
         }
     }
+    
+    func addPlayer(playerName: String) {
+        self.game.players.append(Player(name: playerName, playerNum: self.game.players.count - 1))
+    }
+    
+    func removePlayer(player: Player) {
+        self.game.players.remove(at: player.playerNum)
+        self.updatePlayerNums()
+    }
+    
+    func updatePlayerNums() {
+        for i in 0...self.game.players.count {
+            self.game.players[i].playerNum = i
+        }
+    }
 }
