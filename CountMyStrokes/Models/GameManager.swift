@@ -162,10 +162,13 @@ class GameManager: Codable, ObservableObject {
         }
     }
     
-    func loadGameManager() {
+    func loadGameManager() -> GameManager {
+        let gameManager = GameManager()
         if let data = try? Data(contentsOf: GameManager.dataFilePath!) {
-            importData(data: data)
+            print("Loading gameManager")
+            gameManager.importData(data: data)
         }
+        return gameManager
     }
     
     func getData() -> Data? {
