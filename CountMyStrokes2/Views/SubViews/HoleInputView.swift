@@ -65,7 +65,7 @@ struct HoleInputView: View {
                     model.updateWatch()
                 })
             HoleInputSection(
-                label: "Green in Regulation:  ",
+                label: "Green in Regulation:    ",
                 button1ImageView: AnyView(Image(systemName: "checkmark.circle").foregroundColor(model.gameManager.getCurrentHole().greenInRegulation ?? false ? .green : .white)),
                 button1Action: {
                     model.objectWillChange.send()
