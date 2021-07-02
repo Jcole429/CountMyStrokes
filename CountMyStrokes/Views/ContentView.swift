@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @EnvironmentObject var model: ViewModelPhone
     
     @State var newGamePressed = false
@@ -22,7 +23,6 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.all)
             VStack {
                 VStack {
-                    Spacer()
                     ZStack{
                         Color(.darkGray)
                             .cornerRadius(8)

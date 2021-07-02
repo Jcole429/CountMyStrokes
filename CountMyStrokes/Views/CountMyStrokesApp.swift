@@ -16,7 +16,7 @@ struct CountMyStrokesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(model)
+            MainMenuView().environmentObject(model)
         }.onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {
             case .active:
