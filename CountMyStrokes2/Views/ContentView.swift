@@ -55,13 +55,13 @@ struct ContentView: View {
                                 model.objectWillChange.send()
                                 _ = model.gameManager.previousHole()
                                 model.updateWatch()
-                            }
+                            }.opacity(model.gameManager.currentHoleIndex > 0 ? 1 : 0)
                             Spacer()
                             Button1(label: "Hole #\(model.gameManager.currentHoleIndex + 2)") {
                                 model.objectWillChange.send()
                                 _ = model.gameManager.nextHole()
                                 model.updateWatch()
-                            }
+                            }.opacity(model.gameManager.currentHoleIndex < 17 ? 1 : 0)
                         }
                     }
                 }
