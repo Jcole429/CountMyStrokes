@@ -45,17 +45,21 @@ class MiniGolfGameManager: ObservableObject {
     }
     
     func addPlayer(playerName: String) {
-        self.game.players.append(Player(name: playerName, playerNum: self.game.players.count - 1))
+        self.game.players.append(Player(playerId: self.game.players.count - 1, name: playerName))
     }
     
     func removePlayer(player: Player) {
-        self.game.players.remove(at: player.playerNum)
+        self.game.players.remove(at: player.playerId)
         self.updatePlayerNums()
     }
     
     func updatePlayerNums() {
         for i in 0...self.game.players.count {
-            self.game.players[i].playerNum = i
+            self.game.players[i].playerId = i
         }
+    }
+    
+    func updatePlayerStrokes(playerId: Int, incrementBy val: Int) {
+        self.game.players[playerId].holes[self.game.currentHoleIndex].strokesTaken += val
     }
 }

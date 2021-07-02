@@ -8,8 +8,8 @@
 import Foundation
 
 struct Player: Codable {
+    var playerId: Int
     var name: String
-    var playerNum: Int
     var holes: [Hole] = []
     var score: Int {
         get {
