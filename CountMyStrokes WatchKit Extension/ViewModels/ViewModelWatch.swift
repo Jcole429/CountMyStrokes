@@ -22,7 +22,7 @@ class ViewModelWatch: NSObject, ObservableObject {
     
     func updatePhone() {
         if session.activationState == .activated {
-            print("Watch - updateWatch()")
+            print("Watch - updatePhone()")
             if session.isReachable {
                 WCSession.default.sendMessageData(gameManager.getData()!) { response in
                     print("Response: \(response)")
