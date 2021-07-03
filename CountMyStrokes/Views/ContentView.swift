@@ -87,7 +87,7 @@ struct ContentView: View {
     }
 }
 
-let model = ViewModelPhone()
+let model = WatchConnectivityPhone()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
