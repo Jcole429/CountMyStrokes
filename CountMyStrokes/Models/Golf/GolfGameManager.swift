@@ -142,7 +142,6 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func loadGame() {
-        self.game = GolfGame()
         if let data = try? Data(contentsOf: GolfGameManager.dataFilePath!) {
             print("Loading golfGame")
             self.importData(data: data)
