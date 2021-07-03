@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Game: Codable {
+struct GolfGame: Codable {
     var holes: [Hole]
     var totalScore: Int {
         get {

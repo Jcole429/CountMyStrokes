@@ -7,10 +7,28 @@
 
 import Foundation
 
-class MiniGolfGameManager: ObservableObject {
+class MiniGolfGameManager: GameManagerProtocol, Codable, ObservableObject {
+    
     static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("MiniGolfGame.plist")
     
     @Published var game = MiniGolfGame()
+    
+    enum ChildKeys: CodingKey {
+        case game
+    }
+    
+    init() {
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ChildKeys.self)
+        self.game = try container.decode(MiniGolfGame.self, forKey: .game)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: ChildKeys.self)
+        try container.encode(self.game, forKey: .game)
+    }
     
     func saveGame() {
         let encoder = PropertyListEncoder()
@@ -20,6 +38,17 @@ class MiniGolfGameManager: ObservableObject {
         } catch {
             print("Error encoding mini golf game, \(error)")
         }
+    }
+    
+    func loadGame() -> GameManagerProtocol {
+        self.game = MiniGolfGame()
+        if let data = try? Data(contentsOf: GolfGameManager.dataFilePath!) {
+            print("Loading mini golf game")
+            self.importData(data: data)
+        } else {
+            print("Error loading mini golf game")
+        }
+        return self.game as! GameManagerProtocol
     }
     
     func importData(data: Data) {
@@ -34,13 +63,13 @@ class MiniGolfGameManager: ObservableObject {
         }
     }
     
-    func loadGame() {
-        self.game = MiniGolfGame()
-        if let data = try? Data(contentsOf: GameManager.dataFilePath!) {
-            print("Loading mini golf game")
-            self.importData(data: data)
-        } else {
-            print("Error loading mini golf game")
+    func getData() -> Data? {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(self)
+            return data
+        } catch {
+            return nil
         }
     }
     

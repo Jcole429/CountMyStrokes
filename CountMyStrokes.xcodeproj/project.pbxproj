@@ -22,8 +22,8 @@
 		B4178782268BF498004FFD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178781268BF498004FFD23 /* Assets.xcassets */; };
 		B4178785268BF498004FFD23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178784268BF498004FFD23 /* Preview Assets.xcassets */; };
 		B4178797268BF530004FFD23 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178796268BF530004FFD23 /* Hole.swift */; };
-		B4178799268BF538004FFD23 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178798268BF538004FFD23 /* Game.swift */; };
-		B417879B268BF553004FFD23 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879A268BF553004FFD23 /* GameManager.swift */; };
+		B4178799268BF538004FFD23 /* GolfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178798268BF538004FFD23 /* GolfGame.swift */; };
+		B417879B268BF553004FFD23 /* GolfGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879A268BF553004FFD23 /* GolfGameManager.swift */; };
 		B417879F268BF600004FFD23 /* HoleInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879E268BF600004FFD23 /* HoleInputView.swift */; };
 		B41787A2268BF63A004FFD23 /* Button1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41787A1268BF63A004FFD23 /* Button1.swift */; };
 		B456F649268F8119006F6218 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456F648268F8119006F6218 /* MainMenuView.swift */; };
@@ -38,8 +38,8 @@
 		B456F6592690E6F8006F6218 /* GameManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456F6572690E6F8006F6218 /* GameManagerProtocol.swift */; };
 		B46F1A63268BFEE3009BB0B7 /* ViewModelPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A62268BFEE3009BB0B7 /* ViewModelPhone.swift */; };
 		B46F1A66268BFFE9009BB0B7 /* ViewModelWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A65268BFFE9009BB0B7 /* ViewModelWatch.swift */; };
-		B46F1A67268C1519009BB0B7 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879A268BF553004FFD23 /* GameManager.swift */; };
-		B46F1A68268C15EA009BB0B7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178798268BF538004FFD23 /* Game.swift */; };
+		B46F1A67268C1519009BB0B7 /* GolfGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879A268BF553004FFD23 /* GolfGameManager.swift */; };
+		B46F1A68268C15EA009BB0B7 /* GolfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178798268BF538004FFD23 /* GolfGame.swift */; };
 		B46F1A69268C15ED009BB0B7 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178796268BF530004FFD23 /* Hole.swift */; };
 		B46F1A6D268CC16B009BB0B7 /* ButtonStyle1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A6C268CC16B009BB0B7 /* ButtonStyle1.swift */; };
 		B46F1A73268CE2A7009BB0B7 /* Button1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A72268CE2A7009BB0B7 /* Button1.swift */; };
@@ -109,8 +109,8 @@
 		B4178786268BF498004FFD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4178787268BF498004FFD23 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B4178796268BF530004FFD23 /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
-		B4178798268BF538004FFD23 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		B417879A268BF553004FFD23 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		B4178798268BF538004FFD23 /* GolfGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfGame.swift; sourceTree = "<group>"; };
+		B417879A268BF553004FFD23 /* GolfGameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfGameManager.swift; sourceTree = "<group>"; };
 		B417879E268BF600004FFD23 /* HoleInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleInputView.swift; sourceTree = "<group>"; };
 		B41787A1268BF63A004FFD23 /* Button1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button1.swift; sourceTree = "<group>"; };
 		B456F648268F8119006F6218 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -262,8 +262,8 @@
 		B456F64F268F8A5E006F6218 /* Golf */ = {
 			isa = PBXGroup;
 			children = (
-				B4178798268BF538004FFD23 /* Game.swift */,
-				B417879A268BF553004FFD23 /* GameManager.swift */,
+				B4178798268BF538004FFD23 /* GolfGame.swift */,
+				B417879A268BF553004FFD23 /* GolfGameManager.swift */,
 			);
 			path = Golf;
 			sourceTree = "<group>";
@@ -454,10 +454,10 @@
 				B46F1A63268BFEE3009BB0B7 /* ViewModelPhone.swift in Sources */,
 				B417875B268BF492004FFD23 /* CountMyStrokesApp.swift in Sources */,
 				B456F64D268F8A37006F6218 /* MiniGolfGame.swift in Sources */,
-				B4178799268BF538004FFD23 /* Game.swift in Sources */,
+				B4178799268BF538004FFD23 /* GolfGame.swift in Sources */,
 				B46F1A79268E5D63009BB0B7 /* HoleInputSection.swift in Sources */,
 				B456F655268F93F8006F6218 /* MiniGolfGameManager.swift in Sources */,
-				B417879B268BF553004FFD23 /* GameManager.swift in Sources */,
+				B417879B268BF553004FFD23 /* GolfGameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +470,7 @@
 				B456F6592690E6F8006F6218 /* GameManagerProtocol.swift in Sources */,
 				B417877A268BF497004FFD23 /* ContentView.swift in Sources */,
 				B46F1A73268CE2A7009BB0B7 /* Button1.swift in Sources */,
-				B46F1A67268C1519009BB0B7 /* GameManager.swift in Sources */,
+				B46F1A67268C1519009BB0B7 /* GolfGameManager.swift in Sources */,
 				B456F653268F8B0D006F6218 /* Player.swift in Sources */,
 				B46F1A69268C15ED009BB0B7 /* Hole.swift in Sources */,
 				B4178780268BF497004FFD23 /* ComplicationController.swift in Sources */,
@@ -479,7 +479,7 @@
 				B46F1A6D268CC16B009BB0B7 /* ButtonStyle1.swift in Sources */,
 				B417877E268BF497004FFD23 /* NotificationView.swift in Sources */,
 				B456F656268F93F8006F6218 /* MiniGolfGameManager.swift in Sources */,
-				B46F1A68268C15EA009BB0B7 /* Game.swift in Sources */,
+				B46F1A68268C15EA009BB0B7 /* GolfGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

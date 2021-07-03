@@ -11,7 +11,7 @@ import WatchConnectivity
 class ViewModelPhone: NSObject, ObservableObject {
     
     var session: WCSession
-    @Published var gameManager = GameManager().loadGameManager()
+    @Published var gameManager = GolfGameManager().loadGame() as! GolfGameManager
     
     init(session: WCSession = .default) {
         self.session = session
