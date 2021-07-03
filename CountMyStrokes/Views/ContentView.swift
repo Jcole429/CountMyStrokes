@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var model: ViewModelPhone
+    @EnvironmentObject var model: WatchConnectivityPhone
     
     @State var newGamePressed = false
     
