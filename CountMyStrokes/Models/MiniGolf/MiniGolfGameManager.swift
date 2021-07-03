@@ -40,7 +40,7 @@ class MiniGolfGameManager: GameManagerProtocol, Codable, ObservableObject {
         }
     }
     
-    func loadGame() -> GameManagerProtocol {
+    func loadGame() {
         self.game = MiniGolfGame()
         if let data = try? Data(contentsOf: GolfGameManager.dataFilePath!) {
             print("Loading mini golf game")
@@ -48,7 +48,6 @@ class MiniGolfGameManager: GameManagerProtocol, Codable, ObservableObject {
         } else {
             print("Error loading mini golf game")
         }
-        return self.game as! GameManagerProtocol
     }
     
     func importData(data: Data) {

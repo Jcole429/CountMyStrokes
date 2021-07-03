@@ -9,7 +9,7 @@ import Foundation
 
 protocol GameManagerProtocol {
     func saveGame()
-    func loadGame() -> GameManagerProtocol
+    func loadGame()
     func importData(data: Data)
     func getData() -> Data?
 }

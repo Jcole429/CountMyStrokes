@@ -162,13 +162,14 @@ class GolfGameManager: GameManagerProtocol, Codable, ObservableObject {
         }
     }
     
-    func loadGame() -> GameManagerProtocol {
-        let gameManager = GolfGameManager()
+    func loadGame() {
+        self.game = GolfGame()
         if let data = try? Data(contentsOf: GolfGameManager.dataFilePath!) {
-            print("Loading gameManager")
-            gameManager.importData(data: data)
+            print("Loading golf game")
+            self.importData(data: data)
+        } else {
+            print("Error loading golf Game")
         }
-        return gameManager
     }
     
     func getData() -> Data? {
