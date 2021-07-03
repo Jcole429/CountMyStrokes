@@ -8,13 +8,13 @@
 import Foundation
 
 class GolfGameManager: GameManagerProtocol, ObservableObject {
+    
     static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("golfGame.plist")
     
-    @Published var game = GolfGame(holes: [Hole(holeNumber: 1, par: nil)])
-    @Published var currentHoleIndex = 0
+    @Published var game = GolfGame()
     
     func getCurrentHole() -> Hole {
-        return game.holes[currentHoleIndex]
+        return game.holes[game.currentHoleIndex]
     }
     
     func updateStrokesTaken(holeIndex: Int?, newValue: Int) {
@@ -22,7 +22,7 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
         if let index = holeIndex {
             game.holes[index].strokesTaken = newValue
         } else {
-            game.holes[currentHoleIndex].strokesTaken = newValue
+            game.holes[game.currentHoleIndex].strokesTaken = newValue
         }
     }
     
@@ -30,7 +30,7 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
         if let index = holeIndex {
             game.holes[index].chipsTaken = newValue
         } else {
-            game.holes[currentHoleIndex].chipsTaken = newValue
+            game.holes[game.currentHoleIndex].chipsTaken = newValue
         }
     }
     
@@ -38,7 +38,7 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
         if let index = holeIndex {
             game.holes[index].putsTaken = newValue
         } else {
-            game.holes[currentHoleIndex].putsTaken = newValue
+            game.holes[game.currentHoleIndex].putsTaken = newValue
         }
     }
     
@@ -46,7 +46,7 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
         if let index = holeIndex {
             game.holes[index].penaltiesTaken = newValue
         } else {
-            game.holes[currentHoleIndex].penaltiesTaken = newValue
+            game.holes[game.currentHoleIndex].penaltiesTaken = newValue
         }
     }
     
@@ -91,10 +91,10 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func nextHole() -> Bool {
-        if self.currentHoleIndex < 17 {
-            self.currentHoleIndex += 1
-            if self.game.holes.count <= self.currentHoleIndex {
-                self.game.holes.append(Hole(holeNumber: self.currentHoleIndex + 1, par: nil))
+        if self.game.currentHoleIndex < 17 {
+            self.game.currentHoleIndex += 1
+            if self.game.holes.count <= self.game.currentHoleIndex {
+                self.game.holes.append(Hole(holeNumber: self.game.currentHoleIndex + 1, par: nil))
             }
             return true
         } else {
@@ -103,8 +103,8 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func previousHole() -> Bool {
-        if self.currentHoleIndex > 0 {
-            self.currentHoleIndex -= 1
+        if self.game.currentHoleIndex > 0 {
+            self.game.currentHoleIndex -= 1
             return true
         } else {
             return false
@@ -112,7 +112,7 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func setGreenInRegulation(result: Bool?) {
-        self.game.holes[currentHoleIndex].greenInRegulation = result
+        self.game.holes[self.game.currentHoleIndex].greenInRegulation = result
     }
     
     func pressedGreenInRegulation() {
@@ -161,8 +161,7 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func newGame() {
-        self.game = GolfGame(holes: [Hole(holeNumber: 1, par: nil)])
-        self.currentHoleIndex = 0
+        self.game = GolfGame()
     }
     
     func importData(data: Data) {

@@ -8,7 +8,10 @@
 import Foundation
 
 struct GolfGame: Codable {
+    
     var holes: [Hole] = [Hole(holeNumber: 1, par: nil)]
+    var currentHoleIndex = 0
+    
     var totalScore: Int {
         get {
             var sum = 0

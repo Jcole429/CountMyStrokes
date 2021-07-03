@@ -44,7 +44,7 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             Text("Score: \(gameManager.game.totalScore)")
             HStack{
-                Text("Hole# \(model.gameManager.currentHoleIndex + 1)")
+                Text("Hole# \(model.gameManager.game.currentHoleIndex + 1)")
                 Spacer()
                 Text("Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)")
             }

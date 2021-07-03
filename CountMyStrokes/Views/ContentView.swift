@@ -59,17 +59,17 @@ struct ContentView: View {
                         })
                         Spacer()
                         HStack() {
-                            Button1(label: "Hole \(model.golfGameManager.currentHoleIndex)") {
+                            Button1(label: "Hole \(model.golfGameManager.game.currentHoleIndex)") {
                                 model.objectWillChange.send()
                                 model.updateWatch()
                                 _ = model.golfGameManager.previousHole()
-                            }.opacity(model.golfGameManager.currentHoleIndex > 0 ? 1 : 0)
+                            }.opacity(model.golfGameManager.game.currentHoleIndex > 0 ? 1 : 0)
                             Spacer()
-                            Button1(label: "Hole #\(model.golfGameManager.currentHoleIndex + 2)") {
+                            Button1(label: "Hole #\(model.golfGameManager.game.currentHoleIndex + 2)") {
                                 model.objectWillChange.send()
                                 model.updateWatch()
                                 _ = model.golfGameManager.nextHole()
-                            }.opacity(model.golfGameManager.currentHoleIndex < 17 ? 1 : 0)
+                            }.opacity(model.golfGameManager.game.currentHoleIndex < 17 ? 1 : 0)
                         }
                     }
                 }
