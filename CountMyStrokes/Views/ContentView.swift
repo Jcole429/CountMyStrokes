@@ -30,10 +30,10 @@ struct ContentView: View {
                         VStack {
                             Spacer()
                             Text("Score:").font(.title)
-                            Text("\(model.gameManager.game.totalScore)").font(.largeTitle)
+                            Text("\(model.golfGameManager.game.totalScore)").font(.largeTitle)
                             Spacer()
-                            Text("Hole #\(model.gameManager.getCurrentHole().holeNumber)").font(.title)
-                            Text("Hole Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)").font(.title)
+                            Text("Hole #\(model.golfGameManager.getCurrentHole().holeNumber)").font(.title)
+                            Text("Hole Strokes: \(model.golfGameManager.getCurrentHole().totalStrokesTaken)").font(.title)
                             Spacer()
                             HoleInputView().environmentObject(model)
                             Spacer()
@@ -50,8 +50,8 @@ struct ContentView: View {
                                     message: Text("All data will be lost."),
                                     primaryButton: .destructive(Text("New Game")) {
                                         model.objectWillChange.send()
-                                        model.gameManager.newGame()
                                         model.updateWatch()
+                                        model.golfGameManager.newGame()
                                     },
                                     secondaryButton: .cancel()
                                 )
@@ -59,17 +59,17 @@ struct ContentView: View {
                         })
                         Spacer()
                         HStack() {
-                            Button1(label: "Hole \(model.gameManager.currentHoleIndex)") {
+                            Button1(label: "Hole \(model.golfGameManager.currentHoleIndex)") {
                                 model.objectWillChange.send()
-                                _ = model.gameManager.previousHole()
                                 model.updateWatch()
-                            }.opacity(model.gameManager.currentHoleIndex > 0 ? 1 : 0)
+                                _ = model.golfGameManager.previousHole()
+                            }.opacity(model.golfGameManager.currentHoleIndex > 0 ? 1 : 0)
                             Spacer()
-                            Button1(label: "Hole #\(model.gameManager.currentHoleIndex + 2)") {
+                            Button1(label: "Hole #\(model.golfGameManager.currentHoleIndex + 2)") {
                                 model.objectWillChange.send()
-                                _ = model.gameManager.nextHole()
                                 model.updateWatch()
-                            }.opacity(model.gameManager.currentHoleIndex < 17 ? 1 : 0)
+                                _ = model.golfGameManager.nextHole()
+                            }.opacity(model.golfGameManager.currentHoleIndex < 17 ? 1 : 0)
                         }
                     }
                 }

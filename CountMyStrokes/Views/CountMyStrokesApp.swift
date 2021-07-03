@@ -24,7 +24,7 @@ struct CountMyStrokesApp: App {
             case .inactive:
                 print("scene is now inactive!")
                 print("saving gameManager")
-                model.gameManager.saveGame()
+                self.model.golfGameManager.saveGame()
             case .background:
                 print("scene is now in the background!")
             @unknown default:

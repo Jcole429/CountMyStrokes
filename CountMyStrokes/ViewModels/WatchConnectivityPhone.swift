@@ -11,13 +11,14 @@ import WatchConnectivity
 class WatchConnectivityPhone: NSObject, ObservableObject {
     
     var session: WCSession
-    @Published var gameManager = GolfGameManager().loadGame() as! GolfGameManager
+    @Published var golfGameManager = GolfGameManager()
     
     init(session: WCSession = .default) {
         self.session = session
         super.init()
         self.session.delegate = self
         session.activate()
+        self.golfGameManager.loadGame()
     }
     
     func updateWatch() {
@@ -58,7 +59,7 @@ extension WatchConnectivityPhone: WCSessionDelegate {
         print("Phone - didReceiveMessageData \(messageData)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.gameManager.importData(data: messageData)
+            self.golfGameManager.importData(data: messageData)
         }
     }
     
@@ -66,7 +67,7 @@ extension WatchConnectivityPhone: WCSessionDelegate {
         print("Phone - didReceiveApplicationContext \(applicationContext)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.gameManager.importData(data: applicationContext["gameManager"] as! Data)
+            self.golfGameManager.importData(data: applicationContext["gameManager"] as! Data)
         }
         
     }
