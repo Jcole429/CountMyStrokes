@@ -7,36 +7,19 @@
 
 import Foundation
 
-class MiniGolfGameManager: GameManagerProtocol, Codable, ObservableObject {
+class MiniGolfGameManager: GameManagerProtocol, ObservableObject {
     
     static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("MiniGolfGame.plist")
     
     @Published var game = MiniGolfGame()
     
-    enum ChildKeys: CodingKey {
-        case game
-    }
-    
-    init() {
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ChildKeys.self)
-        self.game = try container.decode(MiniGolfGame.self, forKey: .game)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: ChildKeys.self)
-        try container.encode(self.game, forKey: .game)
-    }
-    
     func saveGame() {
         let encoder = PropertyListEncoder()
         do {
-            let data = try encoder.encode(game)
+            let data = try encoder.encode(self.game)
             try data.write(to: MiniGolfGameManager.dataFilePath!)
         } catch {
-            print("Error encoding mini golf game, \(error)")
+            print("Error saving mini golf game, \(error)")
         }
     }
     
@@ -65,7 +48,7 @@ class MiniGolfGameManager: GameManagerProtocol, Codable, ObservableObject {
     func getData() -> Data? {
         let encoder = PropertyListEncoder()
         do {
-            let data = try encoder.encode(self)
+            let data = try encoder.encode(self.game)
             return data
         } catch {
             return nil

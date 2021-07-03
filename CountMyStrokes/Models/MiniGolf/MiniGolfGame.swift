@@ -15,5 +15,4 @@ struct MiniGolfGame: Codable {
     init() {
         self.players = []
     }
-    
 }

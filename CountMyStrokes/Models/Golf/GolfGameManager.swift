@@ -7,32 +7,11 @@
 
 import Foundation
 
-class GolfGameManager: GameManagerProtocol, Codable, ObservableObject {
-    static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("GolfGame.plist")
+class GolfGameManager: GameManagerProtocol, ObservableObject {
+    static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("golfGame.plist")
     
     @Published var game = GolfGame(holes: [Hole(holeNumber: 1, par: nil)])
     @Published var currentHoleIndex = 0
-    
-    enum ChildKeys: CodingKey {
-        case game, currentHoleIndex
-    }
-    
-    init() {
-        self.game = GolfGame()
-        self.currentHoleIndex = 0
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ChildKeys.self)
-        self.game = try container.decode(GolfGame.self, forKey: .game)
-        self.currentHoleIndex = try container.decode(Int.self, forKey: .currentHoleIndex)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: ChildKeys.self)
-        try container.encode(self.game, forKey: .game)
-        try container.encode(self.currentHoleIndex, forKey: .currentHoleIndex)
-    }
     
     func getCurrentHole() -> Hole {
         return game.holes[currentHoleIndex]
@@ -155,27 +134,27 @@ class GolfGameManager: GameManagerProtocol, Codable, ObservableObject {
     func saveGame() {
         let encoder = PropertyListEncoder()
         do {
-            let data = try encoder.encode(self)
+            let data = try encoder.encode(self.game)
             try data.write(to: GolfGameManager.dataFilePath!)
         } catch {
-            print("Error encoding gameManager, \(error)")
+            print("Error encoding golfGame, \(error)")
         }
     }
     
     func loadGame() {
         self.game = GolfGame()
         if let data = try? Data(contentsOf: GolfGameManager.dataFilePath!) {
-            print("Loading golf game")
+            print("Loading golfGame")
             self.importData(data: data)
         } else {
-            print("Error loading golf Game")
+            print("Error loading golfGame")
         }
     }
     
     func getData() -> Data? {
         let encoder = PropertyListEncoder()
         do {
-            let data = try encoder.encode(self)
+            let data = try encoder.encode(self.game)
             return data
         } catch {
             return nil
@@ -190,13 +169,12 @@ class GolfGameManager: GameManagerProtocol, Codable, ObservableObject {
     func importData(data: Data) {
         let decoder = PropertyListDecoder()
         do {
-            let updatedGameManager = try decoder.decode(GolfGameManager.self, from: data)
+            let updatedGame = try decoder.decode(GolfGame.self, from: data)
             self.objectWillChange.send()
-            self.game = updatedGameManager.game
-            self.currentHoleIndex = updatedGameManager.currentHoleIndex
-            print("Imported gameManager data")
+            self.game = updatedGame
+            print("Imported golfGame data")
         } catch {
-            print("Error decoding gameManager, \(error)")
+            print("Error decoding golfGame, \(error)")
         }
     }
 }
