@@ -18,7 +18,7 @@ class GolfGameManager: GameManagerProtocol, Codable, ObservableObject {
     }
     
     init() {
-        self.game = GolfGame(holes: [Hole(holeNumber: 1, par: nil)])
+        self.game = GolfGame()
         self.currentHoleIndex = 0
     }
     
