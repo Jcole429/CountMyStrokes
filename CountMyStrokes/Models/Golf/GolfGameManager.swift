@@ -8,7 +8,7 @@
 import Foundation
 
 class GolfGameManager: GameManagerProtocol, Codable, ObservableObject {
-    static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Games.plist")
+    static let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("GolfGame.plist")
     
     @Published var game = GolfGame(holes: [Hole(holeNumber: 1, par: nil)])
     @Published var currentHoleIndex = 0
