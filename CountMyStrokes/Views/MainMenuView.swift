@@ -33,7 +33,7 @@ struct MainMenuView: View {
                                 .cornerRadius(8)
                         }).isDetailLink(false)
                     NavigationLink(
-                        destination: MiniGolfModeView(),
+                        destination: MiniGolfModeView().environmentObject(model),
                         label: {
                             Text("Mini Golf Mode\n(Coming Soon)")
                                 .font(.title2)

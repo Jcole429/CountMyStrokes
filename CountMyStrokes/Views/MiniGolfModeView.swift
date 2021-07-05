@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MiniGolfModeView: View {
+    
+    @EnvironmentObject var model: WatchConnectivityPhone
+    
+    
     var body: some View {
         NavigationView {
             Text("Mini Golf Time")
