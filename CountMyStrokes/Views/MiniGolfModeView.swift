@@ -35,17 +35,20 @@ struct MiniGolfModeView: View {
                     Text("Hole #\(model.miniGolfGameManager.game.currentHoleIndex + 1)")
                         .font(.largeTitle)
                     Spacer()
-                    ForEach(model.miniGolfGameManager.game.players, id: \.playerId) { player in
-                        HoleInputSection(label: "\(player.name):  \(model.miniGolfGameManager.getPlayerStrokes(playerId: player.playerId))", button1ImageView: AnyView(Image(systemName: "minus")), button1Action: {
-                            model.objectWillChange.send()
-                            model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: -1)
-                        }, button2ImageView: AnyView(Image(systemName: "plus"))) {
-                            model.objectWillChange.send()
-                            model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: 1)
-                        }.listRowBackground(Color.clear)
+                    List {
+                        ForEach(model.miniGolfGameManager.game.players, id: \.playerId) { player in
+                            HoleInputSection(label: "\(player.name):  \(model.miniGolfGameManager.getPlayerStrokes(playerId: player.playerId))", button1ImageView: AnyView(Image(systemName: "minus")), button1Action: {
+                                model.objectWillChange.send()
+                                model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: -1)
+                            }, button2ImageView: AnyView(Image(systemName: "plus"))) {
+                                model.objectWillChange.send()
+                                model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: 1)
+                            }.listRowBackground(Color.clear)
+                        }
+                        .onDelete(perform: deleteItems)
+                        .buttonStyle(BorderlessButtonStyle())
                     }
-                    .onDelete(perform: deleteItems)
-                    .buttonStyle(BorderlessButtonStyle())
+                    
                     Spacer()
                 }
                 .padding()
@@ -85,10 +88,26 @@ struct MiniGolfModeView: View {
                     }
                 }
                 Spacer()
+                HStack{
+                    Spacer()
+                    Text("Golf Vectors by Vecteezy")
+                        .padding(.trailing)
+                        .foregroundColor(.white)
+                    
+                }
             }
-            .padding()
+            .padding(.horizontal)
             .foregroundColor(.white)
         }
+        .toolbar(content: {
+            NavigationLink(
+                destination: AddPlayerView().environmentObject(model),
+                label: {
+                    Text("Add Player")
+                        .foregroundColor(.white)
+                    
+                }).disabled(false).grayscale(0.8)
+        })
     }
 }
 
