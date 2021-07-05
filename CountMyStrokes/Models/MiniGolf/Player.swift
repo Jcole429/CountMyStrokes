@@ -11,7 +11,7 @@ struct Player: Codable {
     
     var playerId: Int
     var name: String
-    var holes: [Hole] = []
+    var holes: [Hole] = [Hole(holeNumber: 0)]
     
     var score: Int {
         get {
