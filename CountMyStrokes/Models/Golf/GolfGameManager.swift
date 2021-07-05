@@ -137,7 +137,7 @@ class GolfGameManager: GameManagerProtocol, ObservableObject {
             let data = try encoder.encode(self.game)
             try data.write(to: GolfGameManager.dataFilePath!)
         } catch {
-            print("Error encoding golfGame, \(error)")
+            print("Error saving golfGame, \(error)")
         }
     }
     

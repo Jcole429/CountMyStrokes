@@ -18,13 +18,14 @@ class MiniGolfGameManager: GameManagerProtocol, ObservableObject {
         do {
             let data = try encoder.encode(self.game)
             try data.write(to: MiniGolfGameManager.dataFilePath!)
+            print("Saved mini golf game")
         } catch {
             print("Error saving mini golf game, \(error)")
         }
     }
     
     func loadGame() {
-        if let data = try? Data(contentsOf: GolfGameManager.dataFilePath!) {
+        if let data = try? Data(contentsOf: MiniGolfGameManager.dataFilePath!) {
             print("Loading mini golf game")
             self.importData(data: data)
         } else {
