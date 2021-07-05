@@ -72,4 +72,8 @@ class MiniGolfGameManager: GameManagerProtocol, ObservableObject {
     func updatePlayerStrokes(playerId: Int, incrementBy val: Int) {
         self.game.players[playerId].holes[self.game.currentHoleIndex].strokesTaken += val
     }
+    
+    func getPlayerStrokes(playerId: Int) -> Int {
+        self.game.players[playerId].holes[self.game.currentHoleIndex].strokesTaken
+    }
 }
