@@ -59,7 +59,7 @@ class MiniGolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func updatePlayerNums() {
-        for i in 0...self.game.players.count {
+        for i in 0..<self.game.players.count {
             self.game.players[i].playerId = i
         }
     }
