@@ -17,11 +17,10 @@ struct AddPlayerView: View {
     
     var body: some View {
         VStack{
-            Text("Add Player")
             TextField("Player Name:", text: $newPlayerName)
 
             Button1(label: "Add Player") {
-                model.objectWillChange.send()
+                self.model.objectWillChange.send()
                 model.miniGolfGameManager.addPlayer(playerName: newPlayerName)
                 self.presentationMode.wrappedValue.dismiss()
             }

@@ -56,20 +56,43 @@ class MiniGolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func addPlayer(playerName: String) {
+        self.objectWillChange.send()
         self.game.players.append(Player(playerId: self.game.players.count, name: playerName))
     }
     
     func updatePlayerNums() {
+        self.objectWillChange.send()
         for i in 0..<self.game.players.count {
             self.game.players[i].playerId = i
         }
     }
     
     func updatePlayerStrokes(playerId: Int, incrementBy val: Int) {
+        self.objectWillChange.send()
         self.game.players[playerId].holes[self.game.currentHoleIndex].strokesTaken += val
     }
     
     func getPlayerStrokes(playerId: Int) -> Int {
-        self.game.players[playerId].holes[self.game.currentHoleIndex].strokesTaken
+        self.objectWillChange.send()
+        return self.game.players[playerId].holes[self.game.currentHoleIndex].strokesTaken
+    }
+    
+    func previousHole() {
+        self.objectWillChange.send()
+        if self.game.currentHoleIndex > 0 {
+            self.game.currentHoleIndex -= 1
+        }
+    }
+    
+    func nextHole() {
+        self.objectWillChange.send()
+        if self.game.currentHoleIndex < 17 {
+            self.game.currentHoleIndex += 1
+        }
+    }
+    
+    func newGame() {
+        self.objectWillChange.send()
+        self.game = MiniGolfGame()
     }
 }
