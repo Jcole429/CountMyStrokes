@@ -31,7 +31,7 @@ struct MainMenuView: View {
                                 .padding(.vertical, 10)
                                 .background(Color(UIColor.systemGreen))
                                 .cornerRadius(8)
-                        })
+                        }).isDetailLink(false)
                     NavigationLink(
                         destination: MiniGolfModeView(),
                         label: {
@@ -42,7 +42,7 @@ struct MainMenuView: View {
                                 .padding(.vertical, 10)
                                 .background(Color(UIColor.systemGreen))
                                 .cornerRadius(8)
-                        }).disabled(true).grayscale(0.8)
+                        }).isDetailLink(false).disabled(true).grayscale(0.8)
                     Spacer()
                     HStack{
                         Spacer()
