@@ -29,35 +29,30 @@ struct MiniGolfModeView: View {
                     .aspectRatio(contentMode: .fill)
             )
             .edgesIgnoringSafeArea(.all)
-            VStack(spacing: 0) {
-                VStack {
-                    ZStack {
-                        Color(.darkGray)
-                            .cornerRadius(8)
-                            .opacity(0.5)
-                        VStack {
-                            Text("Hole #\(model.miniGolfGameManager.game.currentHoleIndex + 1)")
-                                .font(.largeTitle)
-                            List {
-                                ForEach(model.miniGolfGameManager.game.players, id: \.playerId) { player in
-                                    HoleInputSection(label: "\(player.name):  \(model.miniGolfGameManager.getPlayerStrokes(playerId: player.playerId))", button1ImageView: AnyView(Image(systemName: "minus")), button1Action: {
-                                        model.objectWillChange.send()
-                                        model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: -1)
-                                    }, button2ImageView: AnyView(Image(systemName: "plus"))) {
-                                        model.objectWillChange.send()
-                                        model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: 1)
-                                    }.listRowBackground(Color.clear)
-                                }
-                                .onDelete(perform: deleteItems)
-                                .buttonStyle(BorderlessButtonStyle())
-                            }.background(Color.clear)
-                        }
+            VStack {
+                ZStack {
+                    Color(.darkGray)
+                        .cornerRadius(8)
+                        .opacity(0.5)
+                    VStack {
+                        Spacer()
+                        Text("Hole #\(model.miniGolfGameManager.game.currentHoleIndex + 1)")
+                            .font(.largeTitle)
+                        List {
+                            ForEach(model.miniGolfGameManager.game.players, id: \.playerId) { player in
+                                HoleInputSection(label: "\(player.name):  \(model.miniGolfGameManager.getPlayerStrokes(playerId: player.playerId))", button1ImageView: AnyView(Image(systemName: "minus")), button1Action: {
+                                    model.objectWillChange.send()
+                                    model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: -1)
+                                }, button2ImageView: AnyView(Image(systemName: "plus"))) {
+                                    model.objectWillChange.send()
+                                    model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: 1)
+                                }.listRowBackground(Color.clear)
+                            }
+                            .onDelete(perform: deleteItems)
+                            .buttonStyle(BorderlessButtonStyle())
+                        }.background(Color.clear)
                     }
                 }
-                .padding(.top, 50)
-                .padding(.horizontal, 30)
-                .foregroundColor(.white)
-                Spacer()
                 Button(action: {}, label: {
                     Button1(label: "New Game") {
                         newGamePressed = true
@@ -75,7 +70,7 @@ struct MiniGolfModeView: View {
                 })
                 Spacer()
                 HStack {
-                    Spacer()
+
                     Button1(label: "Hole #\(model.miniGolfGameManager.game.currentHoleIndex)") {
                         model.objectWillChange.send()
                         model.miniGolfGameManager.previousHole()
@@ -85,9 +80,11 @@ struct MiniGolfModeView: View {
                         model.objectWillChange.send()
                         model.miniGolfGameManager.nextHole()
                     }.opacity(model.miniGolfGameManager.game.currentHoleIndex < 17 ? 1 : 0)
-                    Spacer()
                 }
             }
+            .padding(.top, 50)
+            .padding(.horizontal, 30)
+            .foregroundColor(.white)
             .navigationBarTitle("Mini Golf Mode")
             .toolbar(content: {
                 NavigationLink(
