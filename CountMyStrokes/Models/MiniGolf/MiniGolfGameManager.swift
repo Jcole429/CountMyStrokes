@@ -55,7 +55,7 @@ class MiniGolfGameManager: GameManagerProtocol, ObservableObject {
     }
     
     func addPlayer(playerName: String) {
-        self.game.players.append(Player(playerId: self.game.players.count - 1, name: playerName))
+        self.game.players.append(Player(playerId: self.game.players.count, name: playerName))
     }
     
     func removePlayer(player: Player) {
