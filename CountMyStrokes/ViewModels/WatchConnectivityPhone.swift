@@ -21,7 +21,7 @@ class WatchConnectivityPhone: NSObject, ObservableObject {
         self.golfGameManager.loadGame()
     }
     
-    func updateWatch() {
+    func updateWatch(gameManager: GameManagerProtocol) {
         if session.activationState == .activated {
             if session.isReachable {
                 print("Phone - sendMessageData()")
@@ -39,6 +39,10 @@ class WatchConnectivityPhone: NSObject, ObservableObject {
                 }
             }
         }
+    }
+    
+    func updateWatchGolf() {
+        self.updateWatch(gameManager: self.golfGameManager)
     }
 }
 

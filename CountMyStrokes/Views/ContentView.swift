@@ -50,8 +50,8 @@ struct ContentView: View {
                                     message: Text("All data will be lost."),
                                     primaryButton: .destructive(Text("New Game")) {
                                         model.objectWillChange.send()
-                                        model.updateWatch()
                                         model.golfGameManager.newGame()
+                                        model.updateWatchGolf()
                                     },
                                     secondaryButton: .cancel()
                                 )
@@ -61,14 +61,14 @@ struct ContentView: View {
                         HStack() {
                             Button1(label: "Hole \(model.golfGameManager.game.currentHoleIndex)") {
                                 model.objectWillChange.send()
-                                model.updateWatch()
                                 _ = model.golfGameManager.previousHole()
+                                model.updateWatchGolf()
                             }.opacity(model.golfGameManager.game.currentHoleIndex > 0 ? 1 : 0)
                             Spacer()
                             Button1(label: "Hole #\(model.golfGameManager.game.currentHoleIndex + 2)") {
                                 model.objectWillChange.send()
-                                model.updateWatch()
                                 _ = model.golfGameManager.nextHole()
+                                model.updateWatchGolf()
                             }.opacity(model.golfGameManager.game.currentHoleIndex < 17 ? 1 : 0)
                         }
                     }

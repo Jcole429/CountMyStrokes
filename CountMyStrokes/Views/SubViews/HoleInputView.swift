@@ -17,52 +17,52 @@ struct HoleInputView: View {
                 ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.decrementCurrentHoleStrokesTaken()
+                    model.updateWatchGolf()
                 },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.incrementCurrentHoleStrokesTaken()
+                    model.updateWatchGolf()
                 })
             HoleInputSection(
                 label: "Chips: \(model.golfGameManager.getCurrentHole().chipsTaken)"
                 ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.decrementCurrentHoleChipsTaken()
+                    model.updateWatchGolf()
                 },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.incrementCurrentHoleChipsTaken()
+                    model.updateWatchGolf()
                 })
             HoleInputSection(
                 label: "Puts: \(model.golfGameManager.getCurrentHole().putsTaken)"
                 ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.decrementCurrentHolePutsTaken()
+                    model.updateWatchGolf()
                 },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.incrementCurrentHolePutsTaken()
+                    model.updateWatchGolf()
                 })
             HoleInputSection(
                 label: "Penalties: \(model.golfGameManager.getCurrentHole().penaltiesTaken)"
                 ,button1ImageView: AnyView(Image(systemName: "minus"))
                 ,button1Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.decrementCurrentHolePenaltiesTaken()
+                    model.updateWatchGolf()
                 },button2ImageView: AnyView(Image(systemName: "plus"))
                 ,Button2Action: {
                     model.objectWillChange.send()
-                    model.updateWatch()
                     model.golfGameManager.incrementCurrentHolePenaltiesTaken()
+                    model.updateWatchGolf()
                 })
             HoleInputSection(
                 label: "Green in Regulation:    ",
