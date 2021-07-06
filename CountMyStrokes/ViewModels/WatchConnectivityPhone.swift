@@ -13,6 +13,8 @@ class WatchConnectivityPhone: NSObject, ObservableObject {
     var session: WCSession
     @Published var golfGameManager = GolfGameManager()
     
+    var golfGameManagerString = "golfGameManager"
+    
     init(session: WCSession = .default) {
         self.session = session
         super.init()
@@ -21,11 +23,11 @@ class WatchConnectivityPhone: NSObject, ObservableObject {
         self.golfGameManager.loadGame()
     }
     
-    func updateWatch(gameManager: GameManagerProtocol) {
+    func updateWatch(gameManager: GameManagerProtocol, messageString: String) {
         if session.activationState == .activated {
             if session.isReachable {
                 print("Phone - sendMessageData()")
-                session.sendMessageData(gameManager.getData()!) { response in
+                session.sendMessage([messageString : gameManager.getData()!]) { response in
                     print("Response: \(response)")
                 } errorHandler: { error in
                     print("Error \(error)")
@@ -33,7 +35,7 @@ class WatchConnectivityPhone: NSObject, ObservableObject {
             } else {
                 do {
                     print("Phone - updateApplicationContext()")
-                    try session.updateApplicationContext(["gameManager": gameManager.getData()!])
+                    try session.updateApplicationContext([messageString: gameManager.getData()!])
                 } catch {
                     print("Error sending data to watch: \(error)")
                 }
@@ -42,7 +44,8 @@ class WatchConnectivityPhone: NSObject, ObservableObject {
     }
     
     func updateWatchGolf() {
-        self.updateWatch(gameManager: self.golfGameManager)
+        self.updateWatch(gameManager: self.golfGameManager, messageString: golfGameManagerString)
+    }
     }
 }
 

@@ -13,6 +13,7 @@ class ViewModelWatch: NSObject, ObservableObject {
     var session: WCSession
     @Published var gameManager = GolfGameManager()
     
+    var golfGameManagerString = "golfGameManager"
     init(session: WCSession = .default) {
         self.session = session
         super.init()
@@ -46,11 +47,11 @@ extension ViewModelWatch: WCSessionDelegate {
         print("Watch - activationDidCompleteWith")
     }
     
-    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
-        print("Watch - didReceiveMessageData: \(messageData)")
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        print("Watch - didReceiveMessage: \(message)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.gameManager.importData(data: messageData)
+            self.gameManager.importData(data: message[self.golfGameManagerString] as! Data)
         }
     }
     
