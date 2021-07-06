@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var didLongPress = false
     
     var body: some View {
-        let gameManager = model.gameManager
+        let gameManager = model.golfGameManager
         let detectDirectionalDrags = DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
         .onEnded { value in
             print(value.translation)
@@ -21,14 +21,14 @@ struct ContentView: View {
             if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
                 print("left swipe")
                 model.objectWillChange.send()
-                _ = model.gameManager.nextHole()
-                model.updatePhone()
+                _ = model.golfGameManager.nextHole()
+                model.updatePhoneGolf()
             }
             else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
                 print("left right")
                 model.objectWillChange.send()
-                _ = model.gameManager.previousHole()
-                model.updatePhone()
+                _ = model.golfGameManager.previousHole()
+                model.updatePhoneGolf()
             }
             else if value.translation.height < 0 && value.translation.width < 100 && value.translation.width > -100 {
                 print("up swipe")
@@ -44,50 +44,50 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             Text("Score: \(gameManager.game.totalScore)")
             HStack{
-                Text("Hole# \(model.gameManager.game.currentHoleIndex + 1)")
+                Text("Hole# \(model.golfGameManager.game.currentHoleIndex + 1)")
                 Spacer()
-                Text("Strokes: \(model.gameManager.getCurrentHole().totalStrokesTaken)")
+                Text("Strokes: \(model.golfGameManager.getCurrentHole().totalStrokesTaken)")
             }
             Spacer()
             HStack{
-                Button1(labelText: "General:\n \(model.gameManager.getCurrentHole().strokesTaken)") {
+                Button1(labelText: "General:\n \(model.golfGameManager.getCurrentHole().strokesTaken)") {
                     model.objectWillChange.send()
-                    model.gameManager.incrementCurrentHoleStrokesTaken()
-                    model.updatePhone()
+                    model.golfGameManager.incrementCurrentHoleStrokesTaken()
+                    model.updatePhoneGolf()
                 } longPressAction: {
                     model.objectWillChange.send()
-                    model.gameManager.decrementCurrentHoleStrokesTaken()
-                    model.updatePhone()
+                    model.golfGameManager.decrementCurrentHoleStrokesTaken()
+                    model.updatePhoneGolf()
                 }
-                Button1(labelText: "Chips:\n \(model.gameManager.getCurrentHole().chipsTaken)") {
+                Button1(labelText: "Chips:\n \(model.golfGameManager.getCurrentHole().chipsTaken)") {
                     model.objectWillChange.send()
-                    model.gameManager.incrementCurrentHoleChipsTaken()
-                    model.updatePhone()
+                    model.golfGameManager.incrementCurrentHoleChipsTaken()
+                    model.updatePhoneGolf()
                 } longPressAction: {
                     model.objectWillChange.send()
-                    model.gameManager.decrementCurrentHoleChipsTaken()
-                    model.updatePhone()
+                    model.golfGameManager.decrementCurrentHoleChipsTaken()
+                    model.updatePhoneGolf()
                 }
             }
             Spacer()
             HStack{
-                Button1(labelText: "Puts:\n \(model.gameManager.getCurrentHole().putsTaken)") {
+                Button1(labelText: "Puts:\n \(model.golfGameManager.getCurrentHole().putsTaken)") {
                     model.objectWillChange.send()
-                    model.gameManager.incrementCurrentHolePutsTaken()
-                    model.updatePhone()
+                    model.golfGameManager.incrementCurrentHolePutsTaken()
+                    model.updatePhoneGolf()
                 } longPressAction: {
                     model.objectWillChange.send()
-                    model.gameManager.decrementCurrentHolePutsTaken()
-                    model.updatePhone()
+                    model.golfGameManager.decrementCurrentHolePutsTaken()
+                    model.updatePhoneGolf()
                 }
-                Button1(labelText: "Penalties:\n \(model.gameManager.getCurrentHole().penaltiesTaken)") {
+                Button1(labelText: "Penalties:\n \(model.golfGameManager.getCurrentHole().penaltiesTaken)") {
                     model.objectWillChange.send()
-                    model.gameManager.incrementCurrentHolePenaltiesTaken()
-                    model.updatePhone()
+                    model.golfGameManager.incrementCurrentHolePenaltiesTaken()
+                    model.updatePhoneGolf()
                 } longPressAction: {
                     model.objectWillChange.send()
-                    model.gameManager.decrementCurrentHolePenaltiesTaken()
-                    model.updatePhone()
+                    model.golfGameManager.decrementCurrentHolePenaltiesTaken()
+                    model.updatePhoneGolf()
                 }
             }
         }.gesture(detectDirectionalDrags)

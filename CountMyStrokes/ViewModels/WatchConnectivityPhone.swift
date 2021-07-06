@@ -62,11 +62,10 @@ extension WatchConnectivityPhone: WCSessionDelegate {
         print("phone - sessionDidBecomeInactive")
     }
     
-    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
-        print("Phone - didReceiveMessageData \(messageData)")
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.golfGameManager.importData(data: messageData)
+            self.golfGameManager.importData(data: message[self.golfGameManagerString] as! Data)
         }
     }
     
@@ -74,7 +73,7 @@ extension WatchConnectivityPhone: WCSessionDelegate {
         print("Phone - didReceiveApplicationContext \(applicationContext)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.golfGameManager.importData(data: applicationContext["gameManager"] as! Data)
+            self.golfGameManager.importData(data: applicationContext[self.golfGameManagerString] as! Data)
         }
         
     }

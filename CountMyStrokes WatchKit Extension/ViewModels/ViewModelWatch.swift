@@ -11,7 +11,7 @@ import WatchConnectivity
 class ViewModelWatch: NSObject, ObservableObject {
     
     var session: WCSession
-    @Published var gameManager = GolfGameManager()
+    @Published var golfGameManager = GolfGameManager()
     
     var golfGameManagerString = "golfGameManager"
     init(session: WCSession = .default) {
@@ -21,11 +21,11 @@ class ViewModelWatch: NSObject, ObservableObject {
         session.activate()
     }
     
-    func updatePhone() {
+    func updatePhone(gameManager: GameManagerProtocol, messageString: String) {
         if session.activationState == .activated {
             print("Watch - updatePhone()")
             if session.isReachable {
-                WCSession.default.sendMessageData(gameManager.getData()!) { response in
+                session.sendMessage([messageString : gameManager.getData()!])  { response in
                     print("Response: \(response)")
                 } errorHandler: { error in
                     print("Error sending data to phone: \(error)")
@@ -33,12 +33,16 @@ class ViewModelWatch: NSObject, ObservableObject {
             } else {
                 do {
                     print("Watch - updateApplicationContext()")
-                    try WCSession.default.updateApplicationContext(["gameManager": gameManager.getData()!])
+                    try session.updateApplicationContext([messageString: gameManager.getData()!])
                 } catch {
                     print("Error sending data to phone: \(error)")
                 }
             }
         }
+    }
+    
+    func updatePhoneGolf() {
+        self.updatePhone(gameManager: self.golfGameManager, messageString: self.golfGameManagerString)
     }
 }
 
@@ -51,7 +55,7 @@ extension ViewModelWatch: WCSessionDelegate {
         print("Watch - didReceiveMessage: \(message)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.gameManager.importData(data: message[self.golfGameManagerString] as! Data)
+            self.golfGameManager.importData(data: message[self.golfGameManagerString] as! Data)
         }
     }
     
@@ -59,7 +63,7 @@ extension ViewModelWatch: WCSessionDelegate {
         print("Watch - didReceiveApplicationContext: \(applicationContext)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.gameManager.importData(data: applicationContext["gameManager"] as! Data)
+            self.golfGameManager.importData(data: applicationContext[self.golfGameManagerString] as! Data)
         }
     }
 }
