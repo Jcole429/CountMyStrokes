@@ -16,7 +16,7 @@ struct CountMyStrokes2App: App {
         WindowGroup {
             NavigationView {
                 if model.gameMode == GameMode.golfMode {
-                    ContentView().environmentObject(model)
+                    WatchGolfView().environmentObject(model)
                 } else {
                     MiniGolfWatchView()
                 }

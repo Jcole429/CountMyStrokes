@@ -15,7 +15,7 @@
 		B417876C268BF497004FFD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B417876B268BF497004FFD23 /* Assets.xcassets */; };
 		B4178773268BF497004FFD23 /* CountMyStrokes WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B4178772268BF497004FFD23 /* CountMyStrokes WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B4178778268BF497004FFD23 /* CountMyStrokes2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */; };
-		B417877A268BF497004FFD23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178779268BF497004FFD23 /* ContentView.swift */; };
+		B417877A268BF497004FFD23 /* WatchGolfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178779268BF497004FFD23 /* WatchGolfView.swift */; };
 		B417877C268BF497004FFD23 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417877B268BF497004FFD23 /* NotificationController.swift */; };
 		B417877E268BF497004FFD23 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417877D268BF497004FFD23 /* NotificationView.swift */; };
 		B4178780268BF497004FFD23 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417877F268BF497004FFD23 /* ComplicationController.swift */; };
@@ -106,7 +106,7 @@
 		B417876D268BF497004FFD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4178772268BF497004FFD23 /* CountMyStrokes WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CountMyStrokes WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMyStrokes2App.swift; sourceTree = "<group>"; };
-		B4178779268BF497004FFD23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B4178779268BF497004FFD23 /* WatchGolfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGolfView.swift; sourceTree = "<group>"; };
 		B417877B268BF497004FFD23 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		B417877D268BF497004FFD23 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		B417877F268BF497004FFD23 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -312,7 +312,7 @@
 			children = (
 				B46F1A6B268CC158009BB0B7 /* Components */,
 				B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */,
-				B4178779268BF497004FFD23 /* ContentView.swift */,
+				B4178779268BF497004FFD23 /* WatchGolfView.swift */,
 				B4A391B32695020500DC8C2B /* MiniGolfWatchView.swift */,
 			);
 			path = Views;
@@ -485,7 +485,7 @@
 				B417877C268BF497004FFD23 /* NotificationController.swift in Sources */,
 				B46F1A66268BFFE9009BB0B7 /* ViewModelWatch.swift in Sources */,
 				B456F6592690E6F8006F6218 /* GameManagerProtocol.swift in Sources */,
-				B417877A268BF497004FFD23 /* ContentView.swift in Sources */,
+				B417877A268BF497004FFD23 /* WatchGolfView.swift in Sources */,
 				B46F1A73268CE2A7009BB0B7 /* Button1.swift in Sources */,
 				B4A391B42695020500DC8C2B /* MiniGolfWatchView.swift in Sources */,
 				B46F1A67268C1519009BB0B7 /* GolfGameManager.swift in Sources */,
