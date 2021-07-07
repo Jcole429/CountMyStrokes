@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MiniGolfModeView: View {
+struct PhoneMiniGolfView: View {
     
     @EnvironmentObject var model: WatchConnectivityPhone
     
@@ -121,6 +121,6 @@ struct MiniGolfMode_Previews: PreviewProvider {
         let testModel = WatchConnectivityPhone()
         testModel.miniGolfGameManager.addPlayer(playerName: "Justin")
         testModel.miniGolfGameManager.addPlayer(playerName: "Bohdan")
-        return MiniGolfModeView().environmentObject(testModel)
+        return PhoneMiniGolfView().environmentObject(testModel)
     }
 }
