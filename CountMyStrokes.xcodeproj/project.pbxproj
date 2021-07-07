@@ -37,7 +37,7 @@
 		B456F656268F93F8006F6218 /* MiniGolfGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456F654268F93F8006F6218 /* MiniGolfGameManager.swift */; };
 		B456F6582690E6F8006F6218 /* GameManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456F6572690E6F8006F6218 /* GameManagerProtocol.swift */; };
 		B456F6592690E6F8006F6218 /* GameManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456F6572690E6F8006F6218 /* GameManagerProtocol.swift */; };
-		B46F1A63268BFEE3009BB0B7 /* WatchConnectivityPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A62268BFEE3009BB0B7 /* WatchConnectivityPhone.swift */; };
+		B46F1A63268BFEE3009BB0B7 /* WCPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A62268BFEE3009BB0B7 /* WCPhone.swift */; };
 		B46F1A66268BFFE9009BB0B7 /* WCWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A65268BFFE9009BB0B7 /* WCWatch.swift */; };
 		B46F1A67268C1519009BB0B7 /* GolfGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417879A268BF553004FFD23 /* GolfGameManager.swift */; };
 		B46F1A68268C15EA009BB0B7 /* GolfGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4178798268BF538004FFD23 /* GolfGame.swift */; };
@@ -126,7 +126,7 @@
 		B456F651268F8B0D006F6218 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B456F654268F93F8006F6218 /* MiniGolfGameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGolfGameManager.swift; sourceTree = "<group>"; };
 		B456F6572690E6F8006F6218 /* GameManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagerProtocol.swift; sourceTree = "<group>"; };
-		B46F1A62268BFEE3009BB0B7 /* WatchConnectivityPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityPhone.swift; sourceTree = "<group>"; };
+		B46F1A62268BFEE3009BB0B7 /* WCPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPhone.swift; sourceTree = "<group>"; };
 		B46F1A65268BFFE9009BB0B7 /* WCWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCWatch.swift; sourceTree = "<group>"; };
 		B46F1A6C268CC16B009BB0B7 /* ButtonStyle1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle1.swift; sourceTree = "<group>"; };
 		B46F1A72268CE2A7009BB0B7 /* Button1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button1.swift; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 		B46F1A61268BFE73009BB0B7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B46F1A62268BFEE3009BB0B7 /* WatchConnectivityPhone.swift */,
+				B46F1A62268BFEE3009BB0B7 /* WCPhone.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 				B4178797268BF530004FFD23 /* Hole.swift in Sources */,
 				B456F652268F8B0D006F6218 /* Player.swift in Sources */,
 				B41787A2268BF63A004FFD23 /* Button1.swift in Sources */,
-				B46F1A63268BFEE3009BB0B7 /* WatchConnectivityPhone.swift in Sources */,
+				B46F1A63268BFEE3009BB0B7 /* WCPhone.swift in Sources */,
 				B4A391B12694FCCA00DC8C2B /* GameMode.swift in Sources */,
 				B417875B268BF492004FFD23 /* CountMyStrokesApp.swift in Sources */,
 				B456F64D268F8A37006F6218 /* MiniGolfGame.swift in Sources */,

@@ -12,7 +12,7 @@ struct CountMyStrokesApp: App {
     
     @Environment(\.scenePhase) private var scenePhase
     
-    @ObservedObject var model = WatchConnectivityPhone()
+    @ObservedObject var model = WCPhone()
     
     var body: some Scene {
         WindowGroup {

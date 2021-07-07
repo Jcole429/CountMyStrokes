@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddPlayerView: View {
     
-    @EnvironmentObject var model: WatchConnectivityPhone
+    @EnvironmentObject var model: WCPhone
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var newPlayerName = ""

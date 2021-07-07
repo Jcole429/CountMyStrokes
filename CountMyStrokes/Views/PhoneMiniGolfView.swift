@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhoneMiniGolfView: View {
     
-    @EnvironmentObject var model: WatchConnectivityPhone
+    @EnvironmentObject var model: WCPhone
     
     @State var newGamePressed = false
     
@@ -118,7 +118,7 @@ struct PhoneMiniGolfView: View {
 struct MiniGolfMode_Previews: PreviewProvider {
     
     static var previews: some View {
-        let testModel = WatchConnectivityPhone()
+        let testModel = WCPhone()
         testModel.miniGolfGameManager.addPlayer(playerName: "Justin")
         testModel.miniGolfGameManager.addPlayer(playerName: "Bohdan")
         return PhoneMiniGolfView().environmentObject(testModel)

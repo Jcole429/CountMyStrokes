@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    @EnvironmentObject var model: WatchConnectivityPhone
+    @EnvironmentObject var model: WCPhone
     
     var body: some View {
         NavigationView {

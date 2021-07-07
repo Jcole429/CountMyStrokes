@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HoleInputView: View {
-    @EnvironmentObject var model: WatchConnectivityPhone
+    @EnvironmentObject var model: WCPhone
     
     var body: some View {
         VStack() {

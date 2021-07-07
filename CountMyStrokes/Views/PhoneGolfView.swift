@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhoneGolfView: View {
     
-    @EnvironmentObject var model: WatchConnectivityPhone
+    @EnvironmentObject var model: WCPhone
     
     @State var newGamePressed = false
     
@@ -91,7 +91,7 @@ struct PhoneGolfView: View {
     }
 }
 
-let model = WatchConnectivityPhone()
+let model = WCPhone()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
