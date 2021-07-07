@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B417875B268BF492004FFD23 /* CountMyStrokesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417875A268BF492004FFD23 /* CountMyStrokesApp.swift */; };
-		B417875D268BF492004FFD23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417875C268BF492004FFD23 /* ContentView.swift */; };
+		B417875D268BF492004FFD23 /* PhoneGolfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417875C268BF492004FFD23 /* PhoneGolfView.swift */; };
 		B417875F268BF496004FFD23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B417875E268BF496004FFD23 /* Assets.xcassets */; };
 		B4178762268BF496004FFD23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4178761268BF496004FFD23 /* Preview Assets.xcassets */; };
 		B4178767268BF496004FFD23 /* CountMyStrokes WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B4178766268BF496004FFD23 /* CountMyStrokes WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -97,7 +97,7 @@
 /* Begin PBXFileReference section */
 		B4178757268BF492004FFD23 /* CountMyStrokes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountMyStrokes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B417875A268BF492004FFD23 /* CountMyStrokesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMyStrokesApp.swift; sourceTree = "<group>"; };
-		B417875C268BF492004FFD23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B417875C268BF492004FFD23 /* PhoneGolfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneGolfView.swift; sourceTree = "<group>"; };
 		B417875E268BF496004FFD23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4178761268BF496004FFD23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B4178763268BF496004FFD23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 				B417879D268BF5E6004FFD23 /* SubViews */,
 				B417875A268BF492004FFD23 /* CountMyStrokesApp.swift */,
 				B456F648268F8119006F6218 /* MainMenuView.swift */,
-				B417875C268BF492004FFD23 /* ContentView.swift */,
+				B417875C268BF492004FFD23 /* PhoneGolfView.swift */,
 				B456F64A268F832F006F6218 /* MiniGolfModeView.swift */,
 				B44C0CF8269293C500D0D662 /* AddPlayerView.swift */,
 			);
@@ -461,7 +461,7 @@
 				B417879F268BF600004FFD23 /* HoleInputView.swift in Sources */,
 				B456F6582690E6F8006F6218 /* GameManagerProtocol.swift in Sources */,
 				B456F64B268F832F006F6218 /* MiniGolfModeView.swift in Sources */,
-				B417875D268BF492004FFD23 /* ContentView.swift in Sources */,
+				B417875D268BF492004FFD23 /* PhoneGolfView.swift in Sources */,
 				B4178797268BF530004FFD23 /* Hole.swift in Sources */,
 				B456F652268F8B0D006F6218 /* Player.swift in Sources */,
 				B41787A2268BF63A004FFD23 /* Button1.swift in Sources */,

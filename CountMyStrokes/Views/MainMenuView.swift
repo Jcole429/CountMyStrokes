@@ -22,7 +22,7 @@ struct MainMenuView: View {
                 VStack {
                     Spacer()
                     NavigationLink(
-                        destination: ContentView().environmentObject(model),
+                        destination: PhoneGolfView().environmentObject(model),
                         label: {
                             Text("Golf Mode")
                                 .font(.title2)

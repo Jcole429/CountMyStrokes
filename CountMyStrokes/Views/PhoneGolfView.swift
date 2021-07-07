@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PhoneGolfView: View {
     
     @EnvironmentObject var model: WatchConnectivityPhone
     
@@ -95,7 +95,7 @@ let model = WatchConnectivityPhone()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(model)
+        PhoneGolfView().environmentObject(model)
             .previewDevice("iPhone 8")
         
     }
