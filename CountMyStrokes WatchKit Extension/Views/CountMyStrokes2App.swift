@@ -18,7 +18,7 @@ struct CountMyStrokes2App: App {
                 if model.gameMode == GameMode.golfMode {
                     WatchGolfView().environmentObject(model)
                 } else {
-                    MiniGolfWatchView()
+                    WatchMiniGolfView()
                 }
             }
         }

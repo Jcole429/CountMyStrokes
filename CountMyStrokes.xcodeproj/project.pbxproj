@@ -47,7 +47,7 @@
 		B46F1A79268E5D63009BB0B7 /* HoleInputSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46F1A78268E5D63009BB0B7 /* HoleInputSection.swift */; };
 		B4A391B12694FCCA00DC8C2B /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A391B02694FCCA00DC8C2B /* GameMode.swift */; };
 		B4A391B22694FEF600DC8C2B /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A391B02694FCCA00DC8C2B /* GameMode.swift */; };
-		B4A391B42695020500DC8C2B /* MiniGolfWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A391B32695020500DC8C2B /* MiniGolfWatchView.swift */; };
+		B4A391B42695020500DC8C2B /* WatchMiniGolfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A391B32695020500DC8C2B /* WatchMiniGolfView.swift */; };
 		B4A391B62695036800DC8C2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A391B52695036800DC8C2B /* Constants.swift */; };
 		B4A391B72695036C00DC8C2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A391B52695036800DC8C2B /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -132,7 +132,7 @@
 		B46F1A72268CE2A7009BB0B7 /* Button1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button1.swift; sourceTree = "<group>"; };
 		B46F1A78268E5D63009BB0B7 /* HoleInputSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleInputSection.swift; sourceTree = "<group>"; };
 		B4A391B02694FCCA00DC8C2B /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
-		B4A391B32695020500DC8C2B /* MiniGolfWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGolfWatchView.swift; sourceTree = "<group>"; };
+		B4A391B32695020500DC8C2B /* WatchMiniGolfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMiniGolfView.swift; sourceTree = "<group>"; };
 		B4A391B52695036800DC8C2B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -313,7 +313,7 @@
 				B46F1A6B268CC158009BB0B7 /* Components */,
 				B4178777268BF497004FFD23 /* CountMyStrokes2App.swift */,
 				B4178779268BF497004FFD23 /* WatchGolfView.swift */,
-				B4A391B32695020500DC8C2B /* MiniGolfWatchView.swift */,
+				B4A391B32695020500DC8C2B /* WatchMiniGolfView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -487,7 +487,7 @@
 				B456F6592690E6F8006F6218 /* GameManagerProtocol.swift in Sources */,
 				B417877A268BF497004FFD23 /* WatchGolfView.swift in Sources */,
 				B46F1A73268CE2A7009BB0B7 /* Button1.swift in Sources */,
-				B4A391B42695020500DC8C2B /* MiniGolfWatchView.swift in Sources */,
+				B4A391B42695020500DC8C2B /* WatchMiniGolfView.swift in Sources */,
 				B46F1A67268C1519009BB0B7 /* GolfGameManager.swift in Sources */,
 				B456F653268F8B0D006F6218 /* Player.swift in Sources */,
 				B46F1A69268C15ED009BB0B7 /* Hole.swift in Sources */,
