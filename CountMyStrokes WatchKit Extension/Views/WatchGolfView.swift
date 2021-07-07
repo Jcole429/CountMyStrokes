@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WatchGolfView: View {
-    @EnvironmentObject var model: ViewModelWatch
+    @EnvironmentObject var model: WCWatch
     
     @State private var didLongPress = false
     
@@ -95,7 +95,7 @@ struct WatchGolfView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    var model = ViewModelWatch()
+    var model = WCWatch()
     static var previews: some View {
         WatchGolfView()
             .previewDevice("Apple Watch Series 6 - 40mm")

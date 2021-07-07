@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct CountMyStrokes2App: App {
     
-    @ObservedObject var model = ViewModelWatch()
+    @ObservedObject var model = WCWatch()
     
     @SceneBuilder var body: some Scene {
         WindowGroup {

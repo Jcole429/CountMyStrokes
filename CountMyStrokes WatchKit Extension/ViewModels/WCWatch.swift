@@ -8,7 +8,7 @@
 import SwiftUI
 import WatchConnectivity
 
-class ViewModelWatch: NSObject, ObservableObject {
+class WCWatch: NSObject, ObservableObject {
     
     var session: WCSession
     @Published var golfGameManager = GolfGameManager()
@@ -61,7 +61,7 @@ class ViewModelWatch: NSObject, ObservableObject {
     }
 }
 
-extension ViewModelWatch: WCSessionDelegate {
+extension WCWatch: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("Watch - activationDidCompleteWith")
     }
