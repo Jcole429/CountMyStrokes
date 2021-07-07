@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var model = ViewModelWatch()
+    @EnvironmentObject var model: ViewModelWatch
     
     @State private var didLongPress = false
     

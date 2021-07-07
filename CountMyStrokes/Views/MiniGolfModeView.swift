@@ -107,6 +107,10 @@ struct MiniGolfModeView: View {
                         .foregroundColor(.white)
                     
                 }).disabled(false).grayscale(0.8)
+        }).onAppear(perform: {
+            model.updateGameMode(gameMode: GameMode.miniGolfMode)
+            model.updateWatchGameMode()
+            print("Updated mode to miniGolfMode")
         })
     }
 }

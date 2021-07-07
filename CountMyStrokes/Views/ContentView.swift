@@ -83,7 +83,11 @@ struct ContentView: View {
                     
                 }
             }
-        }
+        }.onAppear(perform: {
+            model.updateGameMode(gameMode: GameMode.golfMode)
+            model.updateWatchGameMode()
+            print("Updated mode to golfMode")
+        })
     }
 }
 

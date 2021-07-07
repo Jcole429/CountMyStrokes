@@ -12,11 +12,13 @@ class ViewModelWatch: NSObject, ObservableObject {
     
     var session: WCSession
     @Published var golfGameManager = GolfGameManager()
+    @Published var gameMode: GameMode
     
-    var golfGameManagerString = "golfGameManager"
     init(session: WCSession = .default) {
         self.session = session
+        self.gameMode = GameMode.golfMode
         super.init()
+        self.loadGameMode()
         self.session.delegate = self
         session.activate()
     }
@@ -42,7 +44,20 @@ class ViewModelWatch: NSObject, ObservableObject {
     }
     
     func updatePhoneGolf() {
-        self.updatePhone(gameManager: self.golfGameManager, messageString: self.golfGameManagerString)
+        self.updatePhone(gameManager: self.golfGameManager, messageString: K.gameManagers.golfGameManager)
+    }
+    
+    func updateGameMode(gameMode: GameMode) {
+        UserDefaults.standard.set(gameMode.rawValue, forKey: K.userDefaults.gameMode)
+        self.objectWillChange.send()
+        self.gameMode = gameMode
+    }
+    
+    func loadGameMode() {
+        let rawValue = UserDefaults.standard.integer(forKey: K.userDefaults.gameMode)
+        self.objectWillChange.send()
+        self.gameMode = GameMode(rawValue: rawValue) ?? .golfMode
+        print("Loaded gameMode value: \(self.gameMode)")
     }
 }
 
@@ -55,7 +70,20 @@ extension ViewModelWatch: WCSessionDelegate {
         print("Watch - didReceiveMessage: \(message)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.golfGameManager.importData(data: message[self.golfGameManagerString] as! Data)
+            if message[K.gameManagers.golfGameManager] != nil {
+                print("Watch - message contains golfGameManager data")
+                self.golfGameManager.importData(data: message[K.gameManagers.golfGameManager] as! Data)
+            } else if message[K.userDefaults.gameMode] != nil {
+                print("Watch - message contains gameMode data")
+                let decoder = PropertyListDecoder()
+                do {
+                    let decodedGameMode = try decoder.decode([GameMode].self, from: message[K.userDefaults.gameMode] as! Data)
+                    self.updateGameMode(gameMode: decodedGameMode[0])
+                }
+                catch {
+                    print("Could not decode gameMode")
+                }
+            }
         }
     }
     
@@ -63,7 +91,7 @@ extension ViewModelWatch: WCSessionDelegate {
         print("Watch - didReceiveApplicationContext: \(applicationContext)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.golfGameManager.importData(data: applicationContext[self.golfGameManagerString] as! Data)
+            self.golfGameManager.importData(data: applicationContext[K.gameManagers.golfGameManager] as! Data)
         }
     }
 }

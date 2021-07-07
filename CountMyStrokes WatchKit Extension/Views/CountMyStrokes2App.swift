@@ -10,10 +10,16 @@ import SwiftUI
 @main
 struct CountMyStrokes2App: App {
     
+    @ObservedObject var model = ViewModelWatch()
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                if model.gameMode == GameMode.golfMode {
+                    ContentView().environmentObject(model)
+                } else {
+                    MiniGolfWatchView()
+                }
             }
         }
 
