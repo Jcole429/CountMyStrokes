@@ -36,6 +36,7 @@ struct AddPlayerView: View {
                     if ($newPlayerName.wrappedValue != "") {
                         self.model.objectWillChange.send()
                         model.miniGolfGameManager.addPlayer(playerName: newPlayerName)
+                        model.updateWatchMiniGolf()
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }

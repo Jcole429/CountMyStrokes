@@ -17,6 +17,7 @@ struct PhoneMiniGolfView: View {
         model.objectWillChange.send()
         model.miniGolfGameManager.game.players.remove(atOffsets: offsets)
         model.miniGolfGameManager.updatePlayerNums()
+        model.updateWatchMiniGolf()
     }
     
     var body: some View {
@@ -40,9 +41,11 @@ struct PhoneMiniGolfView: View {
                             HoleInputSection(label: "\(player.name):  \(model.miniGolfGameManager.getPlayerStrokes(playerId: player.playerId))", button1ImageView: AnyView(Image(systemName: "minus")), button1Action: {
                                 model.objectWillChange.send()
                                 model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: -1)
+                                model.updateWatchMiniGolf()
                             }, button2ImageView: AnyView(Image(systemName: "plus"))) {
                                 model.objectWillChange.send()
                                 model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: 1)
+                                model.updateWatchMiniGolf()
                             }.listRowBackground(Color.clear)
                         }
                         .onDelete(perform: deleteItems)
@@ -69,6 +72,7 @@ struct PhoneMiniGolfView: View {
                                 primaryButton: .destructive(Text("New Game")) {
                                     model.objectWillChange.send()
                                     model.miniGolfGameManager.newGame()
+                                    model.updateWatchMiniGolf()
                                 },
                                 secondaryButton: .cancel()
                             )
@@ -108,8 +112,10 @@ struct PhoneMiniGolfView: View {
                     
                 }).disabled(false).grayscale(0.8)
         }).onAppear(perform: {
+            model.objectWillChange.send()
             model.updateGameMode(gameMode: GameMode.miniGolfMode)
             model.updateWatchGameMode()
+            model.updateWatchMiniGolf()
             print("Updated mode to miniGolfMode")
         })
     }

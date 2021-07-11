@@ -84,8 +84,10 @@ struct PhoneGolfView: View {
                 }
             }
         }.onAppear(perform: {
+            model.objectWillChange.send()
             model.updateGameMode(gameMode: GameMode.golfMode)
             model.updateWatchGameMode()
+            model.updateWatchGolf()
             print("Updated mode to golfMode")
         })
     }

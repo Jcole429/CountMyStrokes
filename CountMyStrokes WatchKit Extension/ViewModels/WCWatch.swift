@@ -12,6 +12,7 @@ class WCWatch: NSObject, ObservableObject {
     
     var session: WCSession
     @Published var golfGameManager = GolfGameManager()
+    @Published var miniGolfGameManager = MiniGolfGameManager()
     @Published var gameMode: GameMode
     
     init(session: WCSession = .default) {
@@ -47,6 +48,10 @@ class WCWatch: NSObject, ObservableObject {
         self.updatePhone(gameManager: self.golfGameManager, messageString: K.gameManagers.golfGameManager)
     }
     
+    func updatePhoneMiniGolf() {
+        self.updatePhone(gameManager: self.miniGolfGameManager, messageString: K.gameManagers.miniGolfGameManager)
+    }
+    
     func updateGameMode(gameMode: GameMode) {
         UserDefaults.standard.set(gameMode.rawValue, forKey: K.userDefaults.gameMode)
         self.objectWillChange.send()
@@ -73,7 +78,11 @@ extension WCWatch: WCSessionDelegate {
             if message[K.gameManagers.golfGameManager] != nil {
                 print("Watch - message contains golfGameManager data")
                 self.golfGameManager.importData(data: message[K.gameManagers.golfGameManager] as! Data)
-            } else if message[K.userDefaults.gameMode] != nil {
+            } else if message[K.gameManagers.miniGolfGameManager] != nil {
+                print("Watch - message contains minGolfGameManager")
+                self.miniGolfGameManager.importData(data: message[K.gameManagers.miniGolfGameManager] as! Data)
+            }
+            else if message[K.userDefaults.gameMode] != nil {
                 print("Watch - message contains gameMode data")
                 let decoder = PropertyListDecoder()
                 do {
