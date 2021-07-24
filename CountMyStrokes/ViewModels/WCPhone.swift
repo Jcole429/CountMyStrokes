@@ -79,6 +79,7 @@ class WCPhone: NSObject, ObservableObject {
         UserDefaults.standard.set(gameMode.rawValue, forKey: K.userDefaults.gameMode)
         self.objectWillChange.send()
         self.gameMode = gameMode
+        self.updateWatchGameMode()
     }
     
     func loadGameMode() {
@@ -105,7 +106,24 @@ extension WCPhone: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.golfGameManager.importData(data: message[K.gameManagers.golfGameManager] as! Data)
+            if message[K.gameManagers.golfGameManager] != nil {
+                print("Phone - message contains golfGameManager data")
+                self.golfGameManager.importData(data: message[K.gameManagers.golfGameManager] as! Data)
+            } else if message[K.gameManagers.miniGolfGameManager] != nil {
+                print("Phone - message contains minGolfGameManager")
+                self.miniGolfGameManager.importData(data: message[K.gameManagers.miniGolfGameManager] as! Data)
+            }
+            else if message[K.userDefaults.gameMode] != nil {
+                print("Phone - message contains gameMode data")
+                let decoder = PropertyListDecoder()
+                do {
+                    let decodedGameMode = try decoder.decode([GameMode].self, from: message[K.userDefaults.gameMode] as! Data)
+                    self.updateGameMode(gameMode: decodedGameMode[0])
+                }
+                catch {
+                    print("Could not decode gameMode")
+                }
+            }
         }
     }
     
