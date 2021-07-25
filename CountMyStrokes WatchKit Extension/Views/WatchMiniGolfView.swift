@@ -13,27 +13,52 @@ struct WatchMiniGolfView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Button(action: {
+                    model.objectWillChange.send()
+                    model.miniGolfGameManager.previousHole()
+                }) {
+                    Image(systemName: "chevron.backward")
+                }
+                Text("Hole # \(model.miniGolfGameManager.game.currentHoleIndex + 1)")
+                    .multilineTextAlignment(.center)
+                    .lineLimit(1)
+                    .layoutPriority(1)
+                Button(action: {
+                    model.objectWillChange.send()
+                    model.miniGolfGameManager.nextHole()
+                }) {
+                    Image(systemName: "chevron.forward")
+                }
+            }
             List {
                 ForEach(model.miniGolfGameManager.game.players, id: \.playerId) { player in
-                    HStack {
-                        HStack {
-                            Text("\(player.name): \(model.miniGolfGameManager.getPlayerStrokes(playerId: player.playerId))")
-                        }
-                        HStack {
+                    HStack() {
+                        Text("\(player.name)\n \(model.miniGolfGameManager.getPlayerStrokes(playerId: player.playerId))")
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.5)
+                            .frame(maxWidth: .infinity)
+                            .multilineTextAlignment(.center)
+                        HStack(spacing: 10) {
                             Button(action: {
                                 model.objectWillChange.send()
-                                model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: -11)
+                                model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: -1)
                                 model.updatePhoneMiniGolf()
                             }) {
-                                Image(systemName: "minus").resizable().scaledToFit()
+                                Image(systemName: "minus")
+                                    .resizable()
+                                    .scaledToFit()
                             }
+                            .buttonStyle(ButtonStyle1())
                             Button(action: {
                                 model.objectWillChange.send()
                                 model.miniGolfGameManager.updatePlayerStrokes(playerId: player.playerId, incrementBy: 1)
                                 model.updatePhoneMiniGolf()
                             }) {
-                                Image(systemName: "plus").resizable().scaledToFit()
-                            }
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .scaledToFit()
+                            }.buttonStyle(ButtonStyle1())
                         }
                     }
                 }
@@ -53,4 +78,4 @@ struct MiniGolfWatchView_Previews: PreviewProvider {
         return WatchMiniGolfView().environmentObject(testModel)
     }
 }
-	
+
