@@ -100,7 +100,25 @@ extension WCWatch: WCSessionDelegate {
         print("Watch - didReceiveApplicationContext: \(applicationContext)")
         DispatchQueue.main.async {
             self.objectWillChange.send()
-            self.golfGameManager.importData(data: applicationContext[K.gameManagers.golfGameManager] as! Data)
+            print("Received: \(applicationContext)")
+            if applicationContext[K.gameManagers.golfGameManager] != nil {
+                print("Watch - message contains golfGameManager data")
+                self.golfGameManager.importData(data: applicationContext[K.gameManagers.golfGameManager] as! Data)
+            } else if applicationContext[K.gameManagers.miniGolfGameManager] != nil {
+                print("Watch - message contains minGolfGameManager")
+                self.miniGolfGameManager.importData(data: applicationContext[K.gameManagers.miniGolfGameManager] as! Data)
+            }
+            else if applicationContext[K.userDefaults.gameMode] != nil {
+                print("Watch - message contains gameMode data")
+                let decoder = PropertyListDecoder()
+                do {
+                    let decodedGameMode = try decoder.decode([GameMode].self, from: applicationContext[K.userDefaults.gameMode] as! Data)
+                    self.updateGameMode(gameMode: decodedGameMode[0])
+                }
+                catch {
+                    print("Could not decode gameMode")
+                }
+            }
         }
     }
 }
