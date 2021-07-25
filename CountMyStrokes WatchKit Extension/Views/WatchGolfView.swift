@@ -95,9 +95,9 @@ struct WatchGolfView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    var model = WCWatch()
     static var previews: some View {
-        WatchGolfView()
+        let model = WCWatch()
+        WatchGolfView().environmentObject(model)
             .previewDevice("Apple Watch Series 6 - 40mm")
     }
 }
