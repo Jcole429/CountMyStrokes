@@ -75,9 +75,8 @@ struct MiniGolfWatchView_Previews: PreviewProvider {
         let testModel = WCWatch()
         testModel.miniGolfGameManager.addPlayer(playerName: "Justin")
         testModel.miniGolfGameManager.addPlayer(playerName: "Bohdan")
-        testModel.miniGolfGameManager.addPlayer(playerName: "Christinaaa")
-        testModel.miniGolfGameManager.addPlayer(playerName: "Christinaaa")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Stephen")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Jeikhunnnnnn")
         return WatchMiniGolfView().environmentObject(testModel)
     }
 }
-
