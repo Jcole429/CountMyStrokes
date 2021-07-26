@@ -17,6 +17,7 @@ struct WatchMiniGolfView: View {
                 Button(action: {
                     model.objectWillChange.send()
                     model.miniGolfGameManager.previousHole()
+                    model.updatePhoneMiniGolf()
                 }) {
                     Image(systemName: "chevron.backward")
                 }
@@ -27,6 +28,7 @@ struct WatchMiniGolfView: View {
                 Button(action: {
                     model.objectWillChange.send()
                     model.miniGolfGameManager.nextHole()
+                    model.updatePhoneMiniGolf()
                 }) {
                     Image(systemName: "chevron.forward")
                 }
