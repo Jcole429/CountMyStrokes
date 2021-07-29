@@ -16,7 +16,6 @@ struct HoleInputSection: View {
     
     var body: some View {
         HStack {
-            
             Spacer()
             Text(label)
             
