@@ -51,15 +51,11 @@ struct PhoneMiniGolfView: View {
                         .onDelete(perform: deleteItems)
                         .buttonStyle(BorderlessButtonStyle())
                     }
-                    
-                    Spacer()
                 }
                 .padding()
                 .background(Color(.darkGray)
                                 .opacity(0.7)
                                 .cornerRadius(8))
-                
-                Spacer()
                 VStack {
                     Spacer()
                     Button(action: {}, label: {
