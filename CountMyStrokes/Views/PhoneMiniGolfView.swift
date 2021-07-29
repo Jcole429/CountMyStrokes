@@ -127,6 +127,12 @@ struct MiniGolfMode_Previews: PreviewProvider {
         let testModel = WCPhone()
         testModel.miniGolfGameManager.addPlayer(playerName: "Justin")
         testModel.miniGolfGameManager.addPlayer(playerName: "Bohdan")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Justin")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Bohdan")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Justin")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Bohdan")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Justin")
+        testModel.miniGolfGameManager.addPlayer(playerName: "Bohdan")
         return PhoneMiniGolfView().environmentObject(testModel)
     }
 }
