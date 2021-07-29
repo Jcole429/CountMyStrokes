@@ -35,14 +35,14 @@ struct MainMenuView: View {
                     NavigationLink(
                         destination: PhoneMiniGolfView().environmentObject(model),
                         label: {
-                            Text("Mini Golf Mode\n(Coming Soon)")
+                            Text("Mini Golf Mode")
                                 .font(.title2)
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 20)
                                 .padding(.vertical, 10)
                                 .background(Color(UIColor.systemGreen))
                                 .cornerRadius(8)
-                        }).isDetailLink(false).disabled(true).grayscale(0.8)
+                        }).isDetailLink(false)
                     Spacer()
                     HStack{
                         Spacer()
